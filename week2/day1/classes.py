@@ -12,7 +12,7 @@ class Pet:
 
 Leia = Pet("Leia","Jessika","Bark")
 Gimpy = Pet("Gimpy","Jessika","Meow")
-Luci = Pet("Lucipurr","Jessika","Meow")
+Luci = Pet("Lucipurr","Jessika","MEEEEEEEEEEEH")
 
 Leia.whatIsMyName()
 Leia.whoIsMyOwner()
