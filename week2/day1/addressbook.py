@@ -13,7 +13,7 @@ class Contact:
         self.name = name
         self.phonenumber = phonenumber
 def displayContact(self):
-    print(f"{self.name}:{self.phonenumber}")
+    print(f"{self.name}: {self.phonenumber}")
 def displayName(self):
     print(self.name)
 
@@ -35,19 +35,19 @@ def phoneBookApp():
                 displayName(Name)
             name = input("Which contact would you like to delete? \n")
             if(name == name):
-                choice = input("Are you sure you want to delete? Y for YES or N for NO \n")
-                if(choice == "Y", "y"):
+                choice = input("Are you sure you want to delete? Y for YES or N for NO \n").upper()
+                if(choice == "Y"):
                     for i, entry in enumerate(ContactList):
                         if entry.name == name:
                             del ContactList[i]
                             print("All Done!")
-                if(choice == "N", "n"):
+                elif(choice == "N"):
                     for Name in ContactList:
                         displayName(Name)
                     name = input("Which contact would you like to delete? \n")
                     if(name == name):
-                        choice = input("Are you sure you want to delete? Y for YES or N for NO \n")
-                        if(choice == "Y", "y"):
+                        choice = input("Are you sure you want to delete? Y for YES or N for NO \n").upper()
+                        if(choice == "Y"):
                             for i, entry in enumerate(ContactList):
                                 if entry.name == name:
                                     del ContactList[i]
@@ -57,7 +57,7 @@ def phoneBookApp():
         if(choice == "5"):
             print("Bye!")
             return False
-        if(choice != 1,2,3,5,nameInput,numberInput,choice,"Y","y","N","n"):
+        else:
             print("Please select a valid option.")
 
 phoneBookApp()
