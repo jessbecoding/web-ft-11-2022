@@ -13,7 +13,7 @@ class Contact:
         self.name = name
         self.phonenumber = phonenumber
 def displayContact(self):
-    print(f"{self.name}'s phone number is {self.phonenumber}.")
+    print(f"{self.name}:{self.phonenumber}")
 def displayName(self):
     print(self.name)
 
@@ -37,10 +37,13 @@ def phoneBookApp():
             if(name == name):
                 choice = input("Are you sure you want to delete? Y for YES or N for NO \n")
                 if(choice == "Y", "y"):
-                    ContactList.remove(newContact)
-                    # tried name and newContact
-                    print("All Done!")
-                # if(choice == "N", "n"):
+                    for i, entry in enumerate(ContactList):
+                        if entry.name == name:
+                            del ContactList[i]
+                            break
+                            print("All Done!")
+                if(choice == "N", "n"):
+                    break
                     # I want to prompt them again to enter a name, how do I recall back to that?
             if(name != name):
                 print("That contact isn't found.")
