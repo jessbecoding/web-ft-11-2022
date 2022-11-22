@@ -42,6 +42,8 @@ def phoneBookApp():
                             del ContactList[i]
                             print("All Done!")
                 if(choice == "N", "n"):
+                    for Name in ContactList:
+                        displayName(Name)
                     name = input("Which contact would you like to delete? \n")
                     if(name == name):
                         choice = input("Are you sure you want to delete? Y for YES or N for NO \n")
@@ -55,7 +57,7 @@ def phoneBookApp():
         if(choice == "5"):
             print("Bye!")
             return False
-        if(choice != 1,2,3,5,nameInput,numberInput, "Y","y","N","n"):
+        if(choice != 1,2,3,5,nameInput,numberInput,choice,"Y","y","N","n"):
             print("Please select a valid option.")
 
 phoneBookApp()
