@@ -66,5 +66,30 @@ print("""
     1. Head to Lair
     2. View Main Menu
     """)
+
 choice = input()
-if choice == 2
+if(choice == "1"):
+    slow_type("""
+    You follow road down path. It leads to a dense forest. 
+    To your right, there appears to be a small clearing. 
+    What would you like to do?
+    """)
+    print("""
+    1. Investigate the clearing
+    2. Continue on to Lair
+    """)
+    clearing_choice = input()
+    while clearing_choice == (1):
+        slow_type("""
+        You push your way past some brush and stumble into the clearing, which appears to be a small meadow.
+        There is a wooden chest tucked between two trees on the far end. 
+        What would you like to do?
+        """)
+        print("""
+        1. Investigate chest
+        2. Go back to path
+        """)
+        chest_choice = input()
+        
+
+
