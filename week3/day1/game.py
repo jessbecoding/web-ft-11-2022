@@ -22,7 +22,8 @@ class Hero:
         {self.attack} AP
         """)
     def displayInventory(self):
-        print(hero_name.items)
+        for item in hero_name.items:
+            print(item) 
     def main_menu(self):
         menuchoice = input("""
     1. Hero Stats
@@ -35,8 +36,16 @@ class Hero:
         elif(menuchoice == '2'):
             hero_name.displayInventory()
             hero_name.main_menu()
+        elif(menuchoice == '3'):
+            quit
 
 class Villan:
+    def __init__(self,name,health,attack):
+        self.name = name
+        self.health = health
+        self.attack = attack
+
+class Henchmen:
     def __init__(self,name,health,attack):
         self.name = name
         self.health = health
@@ -81,9 +90,9 @@ print("""
 print("Now, go! The fate of Town is in your hands. \n")
 
 print("""
-    ---------------------------------
+    ----------------------------------
     | ~*Name of Game & Fancy Stuff*~ |
-    ---------------------------------
+    ----------------------------------
     """)
 
 print("""
@@ -94,7 +103,7 @@ print("""
 
 choice = input()
 
-while(choice == "1"):
+if(choice == "1"):
     print("""
 You follow road down path. It leads to a dense forest. 
 To your right, there appears to be a small clearing. 
@@ -119,7 +128,7 @@ What would you like to do?
         """)
         chest_choice = input()
         if(chest_choice == '1'):
-            slow_type("""
+            print("""
 You lift open the heavy wooden lid of the chest. 
 Somehow, it seems like the chest is larger on the inside...
 At the bottom, you see a glimmer catching the light from the sun above you.
@@ -133,7 +142,7 @@ A sword?
             """)
             sword_choice = input()
             if(sword_choice == '1'):
-                slow_type("""
+                print("""
 You pull it out with ease, despite its size.
 It's like...
 It was meant for you?
@@ -141,13 +150,30 @@ It was meant for you?
             hero_name.addItem("Sword")
             hero_name.attack + '10'
             print("You can now use the sword to attack. +10 AP")
-            slow_type("""
+            print("""
     What would you like to do?
         1. Continue to Lair
         2. View Main Menu
         """)
+        if(chest_choice == '2'):
+            print("You suspiciously eye the chest and determine it must be a mimic. You turn around and leave the meadow to rejoin your previous path.")
+        print("""
+    What would you like to do?
+        1. Continue to Lair
+        2. Main Menu
+            """)
 
-while(choice == '2'):
+    if(clearing_choice == '2'):
+        print("You suspiciously eye the chest and determine it must be a mimic. You turn around and leave the meadow to rejoin your previous path.")
+        print("""
+    What would you like to do?
+        1. Continue to Lair
+        2. Main Menu
+            """)
+    if(clearing_choice == '3'):
+        hero_name.main_menu()
+
+elif(choice == '2'):
     choice = hero_name.main_menu()  
-while(choice == '3'):
-    break
+elif(choice == '3'):
+    quit
