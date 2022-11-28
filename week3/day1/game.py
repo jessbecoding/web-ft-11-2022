@@ -39,6 +39,12 @@ def slow_type(str):
         sys.stdout.flush()
         time.sleep(random.random()*10.0/typing_speed)
 
+def title_type(str):
+    for letter in str:
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+        time.sleep(random.random()*5.0/typing_speed)
+
 
 slow_type("Hello, Hero! What is your name?\n")
 hero_name = input()
@@ -55,7 +61,7 @@ print("""
 
 slow_type("Now, go! The fate of Town is in your hands. \n")
 
-slow_type("""
+title_type("""
     ---------------------------------
     | ~*Name of Game & Fancy Stuff*~ |
     ---------------------------------
@@ -79,7 +85,7 @@ if(choice == "1"):
     2. Continue on to Lair
     """)
     clearing_choice = input()
-    while clearing_choice == (1):
+    if(choice == '1'):
         slow_type("""
         You push your way past some brush and stumble into the clearing, which appears to be a small meadow.
         There is a wooden chest tucked between two trees on the far end. 
@@ -90,6 +96,15 @@ if(choice == "1"):
         2. Go back to path
         """)
         chest_choice = input()
-        
-
-
+        if(chest_choice == '1'):
+            slow_type("""
+            You lift open the heavy wooden lid of the chest. 
+            Somehow, it seems like the chest is larger on the inside...
+            At the bottom, you see a glimmer catching the light from the sun above you.
+            A sword?
+            You pull it out with ease, despite its size.
+            It's like...
+            It was meant for you?
+            """)
+            hero_name.addItem("Sword")
+            print("You can now use the sword to  attack. +10 AP")
