@@ -15,7 +15,7 @@ class Hero:
     def addItem(self,itm):
         self.items.append(itm)
     def addGold(self,gold):
-        self.gold + gold
+        self.gold += gold
     def useItem(self,i):
         self.items.remove(i)
     # def heal(self):
@@ -39,29 +39,6 @@ class Henchmen:
 lucipurr = Villan("Lucipurr",'10', '70')
 henchmen = Henchmen("Henchmen",'5','25')
 
-def player_menu():
-    menuchoice = input("""
-1. Hero Stats
-2. Items
-3. Continue
-4. Quit
-""")
-    while True:
-        if(menuchoice == '1'):
-            hero_name.displayStats()
-            hero_name.main_menu()
-        elif(menuchoice == '2'):
-            hero_name.displayInventory()
-            hero_name.main_menu()
-        elif(menuchoice == '4'):
-            quit
-        elif(menuchoice != '1','2','3'):
-            print("Please select a valid option")
-
-def displayInventory():
-    for item in hero_name.items:
-        print(item)       
-
 typing_speed = 70 #wpm
 def slow_type(str):
     for letter in str:
@@ -75,13 +52,46 @@ def title_type(str):
         sys.stdout.flush()
         time.sleep(random.random()*15.0/typing_speed)
 
+def hero_stats(hero_name):
+    print(f"""
+Your name: {hero_name.name}
+HP: {hero_name.health}
+AP: {hero_name.attack}
+""")
+
+def displayInventory(hero_name):
+    for item in hero_name.items:
+        print(item) 
+
+def player_menu(hero_name):
+    menuchoice = input("""
+Please make a selection:
+    1. Hero Stats
+    2. Items
+    3. Continue
+    4. Quit
+    """)
+    if(menuchoice == '1'):
+        hero_stats(hero_name)
+        player_menu(hero_name)
+    elif(menuchoice == '2'):
+        displayInventory(hero_name)
+        player_menu(hero_name)
+    elif (menuchoice == '4'):
+        print("I'm done")
+        quit
+    elif(menuchoice != '1','2','3','4'):
+        print("Please select a valid option")
+        player_menu(hero_name) 
+
 hero_name = input()
 
 def create_hero(hero_name):
     hero_name = input("Hello, Hero! What is your name?\n")
-    hero_name = Hero(hero_name,'50','10','0')
+    hero_name = Hero(hero_name,'50','10', 0)
     print(f"Thank you, {hero_name.name}. We're so glad you're here.\n")
     print("Lucipurr, the troublemaking cat, has been terrorizing Our Town and we need your help! Lucipurr is located in her lair at the end of the forest. Please, take this. It will aid you on your journey \n")
+    gold = 0
     hero_name.addItem("Potion")
     print("""
     A potion has been added to your inventory.
@@ -92,8 +102,9 @@ def create_hero(hero_name):
     | ~*Name of Game & Fancy Stuff*~ |
     ----------------------------------
     """)
+    starting_point(hero_name)
 
-def starting_point():
+def starting_point(hero_name):
     startingchoice = input("""
 You follow the path out of Cloud City toward the dense forest of her outskirts. Through the forest is the way to Lucipurr's Lair. At the entrance to the trees, there's The Last Chance shop. What would you like to do?
     1. Enter the forest
@@ -105,7 +116,7 @@ You follow the path out of Cloud City toward the dense forest of her outskirts. 
     if(startingchoice == '2'):
         theLastChance(hero_name)
     elif(startingchoice == '3'):
-        player_menu()
+        player_menu(hero_name)
 
 def theLastChance(hero_name):
     moneychoice = input("""
@@ -116,7 +127,7 @@ You head toward The Last Chance but abruptly trip over something in your path. W
 """)
     if(moneychoice == '1'):
         print("You bend down and pick up the leather sack that tripped you. It's heavy.")
-        hero_name.addgold('10')
+        hero_name.addGold('10')
         print("10 gold has been added to your inventory")
         shopchoice = input("""
 What would you like to do?
@@ -125,7 +136,9 @@ What would you like to do?
     3. Player Menu
 """)
         if(shopchoice == '2'):
-            starting_point()
+            starting_point(hero_name)
+        if(shopchoice == '3'):
+            player_menu(hero_name)
 
 
 
@@ -138,7 +151,6 @@ You gather your courage and head into the brush, which soon thickens to a dark c
 """)
 
 create_hero(hero_name)
-starting_point()
 
 # Into the forest you go. The light is quickly blocked by the thick canopy of trees above you. Even through this dim light you can see a faint path to the right. What would you like to do?
 #     1. Continue ahead to Lucipurr's Lair
