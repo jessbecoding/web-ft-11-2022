@@ -61,14 +61,15 @@ AP: {hero_name.attack}
 
 def displayInventory(hero_name):
     for item in hero_name.items:
-        print(item) 
+        print(item)
+    print(f"You have {hero_name.gold} gold.")
 
 def player_menu(hero_name):
     menuchoice = input("""
 Please make a selection:
     1. Hero Stats
     2. Items
-    3. Continue
+    3. Go Back
     4. Quit
     """)
     if(menuchoice == '1'):
@@ -77,8 +78,10 @@ Please make a selection:
     elif(menuchoice == '2'):
         displayInventory(hero_name)
         player_menu(hero_name)
+    #elif(menuchoice == '3'):
+    #   need something here that will return to previous screen
     elif (menuchoice == '4'):
-        print("I'm done")
+        print("Bye!")
         quit
     elif(menuchoice != '1','2','3','4'):
         print("Please select a valid option")
@@ -114,11 +117,11 @@ You follow the path out of Cloud City toward the dense forest of her outskirts. 
     if(startingchoice == '1'):
         intoTheForest()
     if(startingchoice == '2'):
-        theLastChance(hero_name)
+        theMoneyPouch(hero_name)
     elif(startingchoice == '3'):
         player_menu(hero_name)
 
-def theLastChance(hero_name):
+def theMoneyPouch(hero_name):
     moneychoice = input("""
 You head toward The Last Chance but abruptly trip over something in your path. What would you like to do?
     1. Investigate what tripped me
@@ -127,20 +130,30 @@ You head toward The Last Chance but abruptly trip over something in your path. W
 """)
     if(moneychoice == '1'):
         print("You bend down and pick up the leather sack that tripped you. It's heavy.")
-        hero_name.addGold('10')
+        hero_name.addGold(10)
         print("10 gold has been added to your inventory")
         shopchoice = input("""
 What would you like to do?
-    1. Talk to the shopkeep
-    2. Head back
-    3. Player Menu
+    1. Talk to Shopkeep
+    2. Player Menu
 """)
+        if(shopchoice == '1'):
+            shop(hero_name)
         if(shopchoice == '2'):
-            starting_point(hero_name)
-        if(shopchoice == '3'):
             player_menu(hero_name)
 
-
+def shop(hero_name):
+    print("The shopkeep greets you warmly and sells you a shield for 10 gold.")
+    hero_name.addItem("Shield")
+    shopexit = input("""
+What would you like to do?
+    1. Continue to Lair
+    2. Player Menu
+""")
+    if(shopexit == '1'):
+        intoTheForest()
+    elif(shopexit == '2'):
+        player_menu(hero_name)
 
 def intoTheForest():
     forestchoice = input("""
