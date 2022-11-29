@@ -1,9 +1,10 @@
 import sys,time,random
 class Hero:
-    def __init__(self,name,health,attack):
+    def __init__(self,name,health,attack,gold):
         self.name = name
         self.health = health
         self.attack = attack
+        self.gold = gold
         self.items = []
     def takeDamage(self):
         print(f"{self.name}'s health is now {self.health}.")
@@ -13,6 +14,8 @@ class Hero:
         # Maybe a chance to miss?
     def addItem(self,itm):
         self.items.append(itm)
+    def addGold(self,gold):
+        self.gold + gold
     def useItem(self,i):
         self.items.remove(i)
     # def heal(self):
@@ -76,7 +79,7 @@ hero_name = input()
 
 def create_hero(hero_name):
     hero_name = input("Hello, Hero! What is your name?\n")
-    hero_name = Hero(hero_name,'50','10')
+    hero_name = Hero(hero_name,'50','10','0')
     print(f"Thank you, {hero_name.name}. We're so glad you're here.\n")
     print("Lucipurr, the troublemaking cat, has been terrorizing Our Town and we need your help! Lucipurr is located in her lair at the end of the forest. Please, take this. It will aid you on your journey \n")
     hero_name.addItem("Potion")
@@ -91,18 +94,51 @@ def create_hero(hero_name):
     """)
 
 def starting_point():
-    startingchoice = input("""You follow the path out of Cloud City toward the dense forest of her outskirts. Through the forest is the way to Lucipurr's Lair. At the entrance to the trees, there's The Last Chance shop. What would you like to do?
+    startingchoice = input("""
+You follow the path out of Cloud City toward the dense forest of her outskirts. Through the forest is the way to Lucipurr's Lair. At the entrance to the trees, there's The Last Chance shop. What would you like to do?
     1. Enter the forest
     2. Shop at The Last Chance
     3. View Player Menu
-    """)
+""")
     if(startingchoice == '1'):
-        enter area 2
+        intoTheForest()
     if(startingchoice == '2'):
-        # enter area 3
+        theLastChance(hero_name)
     elif(startingchoice == '3'):
         player_menu()
 
+def theLastChance(hero_name):
+    moneychoice = input("""
+You head toward The Last Chance but abruptly trip over something in your path. What would you like to do?
+    1. Investigate what tripped me
+    2. Ignore and head for shop
+    3. Player menu
+""")
+    if(moneychoice == '1'):
+        print("You bend down and pick up the leather sack that tripped you. It's heavy.")
+        hero_name.addgold('10')
+        print("10 gold has been added to your inventory")
+        shopchoice = input("""
+What would you like to do?
+    1. Talk to the shopkeep
+    2. Head back
+    3. Player Menu
+""")
+        if(shopchoice == '2'):
+            starting_point()
+
+
+
+def intoTheForest():
+    forestchoice = input("""
+You gather your courage and head into the brush, which soon thickens to a dark canopy of trees above your head. Even through the dim lighting, you make out a way to a small clearing, just barely visable through the branches. What would you like to do?
+    1. Investigate the clearing
+    2. Continue forward to Lucipurr's Lair
+    3. Player Menu
+""")
+
+create_hero(hero_name)
+starting_point()
 
 # Into the forest you go. The light is quickly blocked by the thick canopy of trees above you. Even through this dim light you can see a faint path to the right. What would you like to do?
 #     1. Continue ahead to Lucipurr's Lair
@@ -114,7 +150,6 @@ def starting_point():
 # Not trusting this footpath, you forge ahead to the lair. As you walk, you're suddenly abushed by Lucipurr's henchman-- NAME!
 # """)
 
-create_hero(hero_name)
 
 # print("""
 #     What would you like to do?
