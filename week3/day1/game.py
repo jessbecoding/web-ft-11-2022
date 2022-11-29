@@ -1,3 +1,4 @@
+import sys,time,random
 class Hero:
     def __init__(self,name,health,attack):
         self.name = name
@@ -5,7 +6,6 @@ class Hero:
         self.attack = attack
         self.items = []
     def takeDamage(self):
-        # Need to put something here like hero health - villan damage 
         print(f"{self.name}'s health is now {self.health}.")
     def lunge(self):
         print(f"{self.name} lunges forward with a powerful thrust.")
@@ -15,21 +15,34 @@ class Hero:
         self.items.append(itm)
     def useItem(self,i):
         self.items.remove(i)
-    def displayStats(self):
-        print(f"""
-        {self.name}
-        {self.health} HP
-        {self.attack} AP
-        """)
-    def displayInventory(self):
-        for item in hero_name.items:
-            print(item) 
-    def main_menu(self):
-        menuchoice = input("""
-    1. Hero Stats
-    2. Items
-    3. Quit
-    """)
+    # def heal(self):
+        # Need something like hero health plus 15 for the potion
+
+class Villan:
+    def __init__(self,name,health,attack):
+        self.name = name
+        self.health = health
+        self.attack = attack
+    def villanTakeDamage(self):
+        # Need to put something here like villan healkth - hero attack
+        print(f"{self.name}'s health is now {self.health}.")
+
+class Henchmen:
+    def __init__(self,name,health,attack):
+        self.name = name
+        self.health = health
+        self.attack = attack
+
+lucipurr = Villan("Lucipurr",'10', '70')
+henchmen = Henchmen("Henchmen",'5','25')
+
+def player_menu():
+    menuchoice = input("""
+1. Hero Stats
+2. Items
+3. Quit
+""")
+    while True:
         if(menuchoice == '1'):
             hero_name.displayStats()
             hero_name.main_menu()
@@ -38,28 +51,13 @@ class Hero:
             hero_name.main_menu()
         elif(menuchoice == '3'):
             quit
+        elif(menuchoice != '1','2','3'):
+            print("Please select a valid option")
 
-class Villan:
-    def __init__(self,name,health,attack):
-        self.name = name
-        self.health = health
-        self.attack = attack
+def displayInventory():
+    for item in hero_name.items:
+        print(item)       
 
-class Henchmen:
-    def __init__(self,name,health,attack):
-        self.name = name
-        self.health = health
-        self.attack = attack
-
-
-def combat_menu():
-    print("""
-    1. Attack
-    2. Items
-    3. Flee
-    """)
-
-import sys,time,random
 typing_speed = 70 #wpm
 def slow_type(str):
     for letter in str:
@@ -73,13 +71,12 @@ def title_type(str):
         sys.stdout.flush()
         time.sleep(random.random()*15.0/typing_speed)
 
-
 print("Hello, Hero! What is your name?\n")
 hero_name = input()
 
 hero_name = Hero(hero_name,'50','10')
 
-print("We're so glad you're here. Villan has been terrorizing Town and we need your help! Villan is located in Lair. Please, take this. It will aid you on your journey \n")
+print("We're so glad you're here. Lucipurr has been terrorizing Town and we need your help! Lucipurr is located in her lair at the end of the forest. Please, take this. It will aid you on your journey \n")
 
 hero_name.addItem("Potion")
 
@@ -177,3 +174,22 @@ elif(choice == '2'):
     choice = hero_name.main_menu()  
 elif(choice == '3'):
     quit
+
+
+
+##check win/loss condiditons##
+#pathChoic 
+1
+2
+3
+# while choice != 123 'only type in 1-3
+
+#pathone()
+    #investgate
+    #pathone()
+    #progress
+    #go back -- pathchoice()
+#pathtwo()
+    #stuff for path 2
+#path3()
+
