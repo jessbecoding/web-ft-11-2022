@@ -15,6 +15,8 @@ class Hero:
     def addItem(self,itm):
         self.items.append(itm)
     def addGold(self,gold):
+        self.gold -= gold
+    def spendMoney(self,gold):
         self.gold += gold
     def useItem(self,i):
         self.items.remove(i)
@@ -30,14 +32,7 @@ class Villan:
         # Need to put something here like villan healkth - hero attack
         print(f"{self.name}'s health is now {self.health}.")
 
-class Henchmen:
-    def __init__(self,name,health,attack):
-        self.name = name
-        self.health = health
-        self.attack = attack
-
 lucipurr = Villan("Lucipurr",'10', '70')
-henchmen = Henchmen("Henchmen",'5','25')
 
 typing_speed = 70 #wpm
 def slow_type(str):
@@ -115,11 +110,27 @@ You follow the path out of Cloud City toward the dense forest of her outskirts. 
     3. View Player Menu
 """)
     if(startingchoice == '1'):
-        intoTheForest()
+        intoTheForest(hero_name)
     if(startingchoice == '2'):
         theMoneyPouch(hero_name)
     elif(startingchoice == '3'):
         player_menu(hero_name)
+
+def luciLair ():
+    fightchoice = input("""
+You traverse the rugged forest and finally come to a stop outside of Lucipurr's Lair. There is a giant heavy door cracked slightly ajar.
+Would you like to open it? Y or N
+""").upper()
+    if(fightchoice == "Y"):
+        blockchoice = input("""
+You slowly open the door to a shadowy figure, waiting for you. Lucipurr turns to meet your gaze. The hatred of nine lifetimes bares into your soul. You have only a brief moment to act! What do you do?
+    1. Block
+    2. Attack
+    3. Use Item
+""")
+
+    if(fightchoice == "N"):
+        hjfdgkjh
 
 def theMoneyPouch(hero_name):
     moneychoice = input("""
@@ -145,121 +156,56 @@ What would you like to do?
 def shop(hero_name):
     print("The shopkeep greets you warmly and sells you a shield for 10 gold.")
     hero_name.addItem("Shield")
+    print("A shield has been added to your inventory.")
+    hero_name.spendMoney (10)
+    print("10 gold has been removed from your inventory.")
     shopexit = input("""
 What would you like to do?
     1. Continue to Lair
     2. Player Menu
 """)
     if(shopexit == '1'):
-        intoTheForest()
+        intoTheForest(hero_name)
     elif(shopexit == '2'):
         player_menu(hero_name)
 
-def intoTheForest():
+def intoTheForest(hero_name):
     forestchoice = input("""
 You gather your courage and head into the brush, which soon thickens to a dark canopy of trees above your head. Even through the dim lighting, you make out a way to a small clearing, just barely visable through the branches. What would you like to do?
     1. Investigate the clearing
     2. Continue forward to Lucipurr's Lair
     3. Player Menu
 """)
+    if(forestchoice == '1'):
+        chestchoice = input("""
+You push your way past some brush and stumble into the clearing, which appears to be a small meadow.
+There is a wooden chest tucked between two trees on the far end. 
+What would you like to do?
+    1. Investigate the chest
+    2. Go Back
+    3. Player Menu
+""")
+        if(chestchoice == '1'):
+            print(f"""
+    Once you get to the chest, you can see that it's wood with ornate gold embelishments. Enscribed on the lid is... {hero_name.name}? That can't be right.
+    You're compelled to open the chest by some innate force. Somehow, it seems larger on the inside. A glimmer at the bottom catches your eye. Is that a sword?
+    """)
+            swordchoice = input("Grab sword? Y or N\n").upper()
+            if(swordchoice == 'Y'):
+                print("You reach down a full arm's length into the chest and pull the sword from below. Despite its size, you're able to bring it out with ease.")
+                hero_name.addItem("Sword")
+                print("The sword has been added to your inventory.")
+                swordexit = input("""
+What would you like to do?
+    1. Go back
+    2. Player Menu
+""")
+                if(swordexit == '1'):
+                    intoTheForest()
+                elif(swordexit == '2'):
+                    player_menu(hero_name)
 
 create_hero(hero_name)
-
-# Into the forest you go. The light is quickly blocked by the thick canopy of trees above you. Even through this dim light you can see a faint path to the right. What would you like to do?
-#     1. Continue ahead to Lucipurr's Lair
-#     2. Inverstigate the path
-#     3. View Player Menu
-# """)
-#     if(clearingchoice == '1'):
-#         print("""
-# Not trusting this footpath, you forge ahead to the lair. As you walk, you're suddenly abushed by Lucipurr's henchman-- NAME!
-# """)
-
-
-# print("""
-#     What would you like to do?
-#     1. Head to Lair
-#     2. View Main Menu
-#     """)
-
-# choice = input()
-
-# if(choice == "1"):
-#     print("""
-# You follow road down path. It leads to a dense forest. 
-# To your right, there appears to be a small clearing. 
-# What would you like to do?
-#     """)
-#     print("""
-#     1. Investigate the clearing
-#     2. Continue on to Lair
-#     3. View Main Menu
-#     """)
-#     clearing_choice = input()
-#     if(choice == '1'):
-#         print("""
-# You push your way past some brush and stumble into the clearing, which appears to be a small meadow.
-# There is a wooden chest tucked between two trees on the far end. 
-# What would you like to do?
-#         """)
-#         print("""
-#         1. Investigate chest
-#         2. Go back to path
-#         3. View Main Menu
-#         """)
-#         chest_choice = input()
-#         if(chest_choice == '1'):
-#             print("""
-# You lift open the heavy wooden lid of the chest. 
-# Somehow, it seems like the chest is larger on the inside...
-# At the bottom, you see a glimmer catching the light from the sun above you.
-# A sword?
-# """)
-#             print("""
-#     What would you like to do?
-#         1. Take Sword
-#         2. Turn back
-#         3. View Main Menu
-#             """)
-#             sword_choice = input()
-#             if(sword_choice == '1'):
-#                 print("""
-# You pull it out with ease, despite its size.
-# It's like...
-# It was meant for you?
-#                 """)
-#             hero_name.addItem("Sword")
-#             hero_name.attack + '10'
-#             print("You can now use the sword to attack. +10 AP")
-#             print("""
-#     What would you like to do?
-#         1. Continue to Lair
-#         2. View Main Menu
-#         """)
-#         if(chest_choice == '2'):
-#             print("You suspiciously eye the chest and determine it must be a mimic. You turn around and leave the meadow to rejoin your previous path.")
-#         print("""
-#     What would you like to do?
-#         1. Continue to Lair
-#         2. Main Menu
-#             """)
-
-#     if(clearing_choice == '2'):
-#         print("You suspiciously eye the chest and determine it must be a mimic. You turn around and leave the meadow to rejoin your previous path.")
-#         print("""
-#     What would you like to do?
-#         1. Continue to Lair
-#         2. Main Menu
-#             """)
-#     if(clearing_choice == '3'):
-#         hero_name.main_menu()
-
-# elif(choice == '2'):
-#     choice = hero_name.main_menu()  
-# elif(choice == '3'):
-#     quit
-
-
 
 ##check win/loss condiditons##
 #pathChoic 
