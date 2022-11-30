@@ -48,7 +48,7 @@ def title_type(str):
     for letter in str:
         sys.stdout.write(letter)
         sys.stdout.flush()
-        time.sleep(random.random()*15.0/typing_speed)
+        time.sleep(random.random()*20.0/typing_speed)
 
 def hero_stats(hero_name):
     print(f"""
