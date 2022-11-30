@@ -102,7 +102,7 @@ def player_menu(hero_name):
 Please make a selection:
     1. Hero Stats
     2. Items
-    3. Start Over (sorry couldn't figure out how to go back)
+    3. Back to Start
     4. Quit
     """)
     if(menuchoice == '1'):
@@ -112,7 +112,7 @@ Please make a selection:
         displayInventory(hero_name)
         player_menu(hero_name)
     elif(menuchoice == '3'):
-      create_hero()
+        starting_point(hero_name)
     elif (menuchoice == '4'):
         print("Bye!")
         quit
