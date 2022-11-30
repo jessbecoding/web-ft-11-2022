@@ -80,7 +80,8 @@ def combat_menu(lucipurr,hero_name):
                     slow_type("Your shield has been destroyed!")
                 else:
                     slow_type("You throw your arms over your face, but it's all for naught. All 5 of Lucipurr's sharp claws tear into you. YOU DIED.")
-                    quit
+                    luciper_Alive = False
+                    break
             elif(combatchoice == '2'):
                 attackitem = "Sword"
                 if attackitem not in hero_name.items:
@@ -89,7 +90,8 @@ def combat_menu(lucipurr,hero_name):
         It doesn't appear to phase her!
         All 5 of Lucipurr's sharp claws tear into you. YOU DIED.
         """)
-                        quit
+                        luciper_Alive = False
+                        break
                 else:
                     hero_name.lunge(lucipurr)
         else:
