@@ -8,11 +8,10 @@ class Hero:
         self.items = []
     def takeDamage(self):
         print(f"{self.name}'s health is now {self.health}.")
-    def lunge(self):
+    def lunge(self, enemy):
         print(f"{self.name} lunges forward with a powerful thrust.")
-        lucipurr.health -= self.attack
+        enemy.health -= self.attack
         print(f"{lucipurr.name}'s health is now {lucipurr.health}")
-        # Maybe a chance to miss?
     def addItem(self,itm):
         self.items.append(itm)
     def addGold(self,gold):
@@ -21,8 +20,6 @@ class Hero:
         self.gold += gold
     def useItem(self,i):
         self.items.remove(i)
-    def addAP(self):
-        self.attack += 50
     def heal(self):
         self.health += 50
 
@@ -38,9 +35,9 @@ class Villan:
         print("""
 You heave your sturdy shield in front of you, just in the knick of time! Lucipurr's outstretched claws make contact with the shield, buying you time to parry.""")
 
-lucipurr = Villan("Lucipurr",'10', '70')
+lucipurr = Villan("Lucipurr",50,10)
 
-typing_speed = 70 #wpm
+typing_speed = 80 #wpm
 def slow_type(str):
     for letter in str:
         sys.stdout.write(letter)
@@ -66,34 +63,46 @@ def displayInventory(hero_name):
     print(f"You have {hero_name.gold} gold.")
 
 def combat_menu(lucipurr,hero_name):
-    combatchoice = input("""
-What would you like to do?
-    1. Block
-    2. Attack
-    3. Use Item
-""")
-    if(combatchoice == '1'):
-        blockitem = "Shield"
-        if blockitem in hero_name.items:
-            if blockitem == "Shield":
-                lucipurr.attackFail()
-            elif blockitem != "Shield":
-                print("You throw your arms over your face, but it's all for naught. All 5 of Lucipurr's sharp claws tear into you. YOU DIED")
-                quit
-    if(combatchoice == '2'):
-        attackitem = "Sword"
-        if attackitem in hero_name.items:
-            if attackitem != "Sword":
-                print("You give it your all as you wind up a powerful punch and unleash it on Luci!")
-                lucipurr.health -= hero_name.attack
-
-
+    luciper_Alive = True
+    while luciper_Alive:
+        if lucipurr.health > 1:
+            combatchoice = ''
+            combatchoice = input("""
+        What would you like to do?
+            1. Block
+            2. Attack
+        """)
+            if(combatchoice == '1'):
+                blockitem = "Shield"
+                if blockitem in hero_name.items:
+                    lucipurr.attackFail()
+                    hero_name.useItem("Shield")
+                    slow_type("Your shield has been destroyed!")
+                else:
+                    slow_type("You throw your arms over your face, but it's all for naught. All 5 of Lucipurr's sharp claws tear into you. YOU DIED.")
+                    quit
+            elif(combatchoice == '2'):
+                attackitem = "Sword"
+                if attackitem not in hero_name.items:
+                        slow_type("""
+        You give it your all as you wind up a powerful punch and unleash it on Luci!
+        It doesn't appear to phase her!
+        All 5 of Lucipurr's sharp claws tear into you. YOU DIED.
+        """)
+                        quit
+                else:
+                    hero_name.lunge(lucipurr)
+        else:
+            slow_type('Lucipurr has been DEFEATED!')
+            slow_type('You win')
+            luciper_Alive = False
+            break
 def player_menu(hero_name):
     menuchoice = input("""
 Please make a selection:
     1. Hero Stats
     2. Items
-    3. Go Back
+    3. Start Over (sorry couldn't figure out how to go back)
     4. Quit
     """)
     if(menuchoice == '1'):
@@ -102,8 +111,8 @@ Please make a selection:
     elif(menuchoice == '2'):
         displayInventory(hero_name)
         player_menu(hero_name)
-    #elif(menuchoice == '3'):
-    #   need something here that will return to previous screen
+    elif(menuchoice == '3'):
+      create_hero()
     elif (menuchoice == '4'):
         print("Bye!")
         quit
@@ -115,19 +124,19 @@ hero_name = input()
 
 def create_hero(hero_name):
     hero_name = input("Hello, Hero! What is your name?\n")
-    hero_name = Hero(hero_name,'50','10', 0)
-    print(f"Thank you, {hero_name.name}. We're so glad you're here.\n")
-    print("Lucipurr, the troublemaking cat, has been terrorizing Our Town and we need your help! Lucipurr is located in her lair at the end of the forest. Please, take this. It will aid you on your journey \n")
+    hero_name = Hero(hero_name,50,15,0)
+    slow_type(f"Thank you, {hero_name.name}. We're so glad you're here.\n")
+    slow_type("Lucipurr, the troublemaking cat, has been terrorizing Our Town and we need your help! Lucipurr is located in her lair at the end of the forest. Please, take this. It's dangerous to go alone. \n")
     gold = 0
-    hero_name.addItem("Potion")
+    hero_name.addItem("Kitten")
     print("""
-    A potion has been added to your inventory.
+    A small kitten has been added to your inventory.
     """)
-    print("Now, go! The fate of Town is in your hands. \n")
-    print("""
-    ----------------------------------
-    | ~*Name of Game & Fancy Stuff*~ |
-    ----------------------------------
+    slow_type("Now, go! The fate of Town is in your hands. \n")
+    title_type("""
+    -------------------------------
+    | ~* C A T A S T R O P H E *~ |
+    -------------------------------
     """)
     starting_point(hero_name)
 
@@ -151,10 +160,10 @@ You traverse the rugged forest and finally come to a stop outside of Lucipurr's 
 Would you like to open it? Y or N
 """).upper()
     if(fightchoice == "Y"):
-        print("You slowly widen the opening and step inside. Your eyes adjust to the light for a shadowy figure, perched for an attack. You only have a moment to react!")
+        slow_type("You slowly widen the opening and step inside. Your eyes adjust to the light for a shadowy figure, perched for an attack. You only have a moment to react!")
         combat_menu(lucipurr,hero_name)
     if(fightchoice == "N"):
-        print("Really?! You're giving up now?! Get back in there!!")
+        slow_type("Really?! You're giving up now?! Get back in there!!")
         luciLair()
 
 def theMoneyPouch(hero_name):
@@ -165,7 +174,7 @@ You head toward The Last Chance but abruptly trip over something in your path. W
     3. Player menu
 """)
     if(moneychoice == '1'):
-        print("You bend down and pick up the leather sack that tripped you. It's heavy.")
+        slow_type("You bend down and pick up the leather sack that tripped you. It's heavy.\n")
         hero_name.addGold(10)
         print("10 gold has been added to your inventory")
         shopchoice = input("""
@@ -179,11 +188,11 @@ What would you like to do?
             player_menu(hero_name)
 
 def shop(hero_name):
-    print("The shopkeep greets you warmly and sells you a shield for 10 gold.")
+    slow_type("The shopkeep greets you warmly and sells you a shield for 10 gold.\n")
     hero_name.addItem("Shield")
-    print("A shield has been added to your inventory.")
+    print("A shield has been added to your inventory.\n")
     hero_name.spendMoney (10)
-    print("10 gold has been removed from your inventory.")
+    print("10 gold has been removed from your inventory.\n")
     shopexit = input("""
 What would you like to do?
     1. Continue to Lair
@@ -211,48 +220,32 @@ What would you like to do?
     3. Player Menu
 """)
         if(chestchoice == '1'):
-            print(f"""
+            slow_type(f"""
     Once you get to the chest, you can see that it's wood with ornate gold embelishments. Enscribed on the lid is... {hero_name.name}? That can't be right.
     You're compelled to open the chest by some innate force. Somehow, it seems larger on the inside. A glimmer at the bottom catches your eye. Is that a sword?
     """)
             swordchoice = input("Grab sword? Y or N\n").upper()
             if(swordchoice == 'Y'):
-                print("You reach down a full arm's length into the chest and pull the sword from below. Despite its size, you're able to bring it out with ease.")
+                slow_type("You reach down a full arm's length into the chest and pull the sword from below. Despite its size, you're able to bring it out with ease.\n")
                 hero_name.addItem("Sword")
                 print("The sword has been added to your inventory.")
-                hero_name.addAP()
                 swordexit = input("""
 What would you like to do?
     1. Go back
     2. Player Menu
 """)
                 if(swordexit == '1'):
-                    intoTheForest()
+                    intoTheForest(hero_name)
                 elif(swordexit == '2'):
                     player_menu(hero_name)
         elif(chestchoice == '2'):
             luciLair(lucipurr,hero_name)
         elif(chestchoice == '3'):
-            intoTheForest()
+            intoTheForest(hero_name)
     elif(forestchoice == '2'):
         luciLair(lucipurr,hero_name)
     elif(forestchoice == '3'):
-        player_menu()
+        player_menu(hero_name)
+
 create_hero(hero_name)
-
-##check win/loss condiditons##
-#pathChoic 
-1
-2
-3
-# while choice != 123 'only type in 1-3
-
-#pathone()
-    #investgate
-    #pathone()
-    #progress
-    #go back -- pathchoice()
-#pathtwo()
-    #stuff for path 2
-#path3()
 
