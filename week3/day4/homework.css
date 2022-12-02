@@ -1,0 +1,27 @@
+body {
+    background-image: url("https://www.pixelstalk.net/wp-content/uploads/images6/Pastel-Goth-HD-Wallpaper-Free-download.jpg");
+    background-repeat: repeat;
+    background-size: 10%;
+}
+
+a {
+    color: palegoldenrod;
+    font-family: "Crimson Pro", Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.aboutMe {
+    background-color: #581d63dc;
+    width: 30%;
+}
+
+h1 {
+    text-align: center;
+}
+
+img {
+    image-orientation: center;
+}
+
+.nav {
+    background-color: #581d63dc;
+}
