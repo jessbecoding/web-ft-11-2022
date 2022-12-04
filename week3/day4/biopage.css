@@ -1,19 +1,33 @@
 body {
     background-image: url("https://images.unsplash.com/photo-1611255550543-b5ecb01dfddc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"); 
     background-size: cover;
+    max-width: 35%;
 }
-header {
-    opacity: 0.7;
+.namebanner {
+    opacity: 70%;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    background-color: white;
+    color: black; 
+    font-family: "Meow Script", sans-serif;
+    border-style: double;
+    border-width: 5px;
+    margin: 10%;
+}
+
+.namebanner img {
+    width: 30px;
+}
+
+.bio {
+    opacity: 70%;
     text-align: center;
     margin-left: auto;
     margin-right: auto;
     background-color: white;
     color: black;
-    width: 60%; 
     font-family: "Meow Script", sans-serif;
-    border-style: solid;
+    border-style: double;
     border-width: 5px;
-}
-img {
-    width: 30px;
 }
