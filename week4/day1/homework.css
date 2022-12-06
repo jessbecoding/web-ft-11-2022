@@ -16,8 +16,27 @@ h3 {
 }
 
 .sections img {
-    width: 400px;
-    height: 300px;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+}
+
+.cont-img {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-column-gap: 10px;
+}
+
+.real-life {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-column-gap: 10px;
+}
+
+.favs {
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    grid-column-gap: 10px;
 }
 
 .nav-bar {
@@ -73,5 +92,9 @@ h3 {
 
 .header {
     width:52%;
+    padding: 1em;
+}
+
+.sections {
     padding: 1em;
 }
