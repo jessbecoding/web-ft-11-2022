@@ -1,0 +1,18 @@
+.cell {
+    border: 1px solid;
+    height: 100px;
+    width: 100px;
+}
+
+.chessboard {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row:nth-child(odd) > .cell:nth-child(even) {
+    background: burlywood
+}
+
+.row:nth-child(even) > .cell:nth-child(odd) {
+    background: maroon;
+}
