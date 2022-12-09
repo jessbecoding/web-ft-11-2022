@@ -1,0 +1,16 @@
+body {
+    background-color: black;
+}
+
+button {
+    background-color: black;
+    color: teal;
+    border: solid grey;
+    font-size: xx-large;
+}
+
+.calc {
+    display: grid;
+    grid-template-columns: 1fr, 1fr, 1fr;
+    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+}
