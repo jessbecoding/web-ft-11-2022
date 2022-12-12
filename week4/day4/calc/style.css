@@ -1,6 +1,7 @@
 body {
     background-color: black;
     max-width: 50%;
+    color: antiquewhite;
 }
 
 button {
@@ -12,6 +13,6 @@ button {
 
 .calc {
     display: grid;
-    grid-template-columns: 1fr, 1fr, 1fr;
-    grid-template-rows: 1fr, 1fr, 1fr, 1fr;
+    justify-content: center;
+    align-content: center;
 }
