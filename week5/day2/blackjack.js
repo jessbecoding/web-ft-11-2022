@@ -14,10 +14,14 @@ const makeDeck = (rank, suit) => {
     deck.push(card);
 };
 
+function getCardImage () {
+    
+}
+
 function dealHand () {
     const newCard = document.createElement("img")
-    newCard.src = "C:\Users\jsskl\Documents\DigitalCrafts\web-ft-11-2022\week5\day2\images\2_of_clubs.png"
-    playerHand.push(newCard)
+    newCard.src = "\images\2_of_clubs.png"
+    playerHand.append(newCard)
 }
 
 for (let suit of suits) {
