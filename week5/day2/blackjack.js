@@ -4,11 +4,12 @@ const dealButton = document.getElementById("deal-button");
 const hitButton = document.getElementById("hit-button");
 const standButton = document.getElementById("stand-button");
 const playerPoints = document.getElementById("player-points");
+const dealerPoints = document.getElementById("dealer-points");
 const deck = [];
 const playerCards = [];
 const dealerCards = [];
 const suits = ["hearts", "spades", "clubs", "diamonds"];
-const ranks = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king"];
+const ranks = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13];
 
 const makeDeck = (rank, suit) => {
     const card = {
@@ -18,6 +19,12 @@ const makeDeck = (rank, suit) => {
     };
     deck.push(card);
 };
+
+for (let suit of suits) {
+    for (const rank of ranks) {
+    makeDeck(rank, suit);
+    }
+}
 
 function getCardImagePlayer (card) {
     const cardImage = document.createElement("img");
@@ -37,6 +44,7 @@ function dealPlayer () {
     const playerCardTwo = deck[Math.floor(Math.random()*deck.length)];
     getCardImagePlayer(playerCardTwo);
     playerCards.push(playerCardOne, playerCardTwo)
+    playerScore = calculatePointsPlayer(playerCards, playerCards.length)
 }
 
 function dealDealer () {
@@ -44,6 +52,8 @@ function dealDealer () {
     getCardImageDealer(dealerCardOne);
     const dealerCardTwo = deck[Math.floor(Math.random()*deck.length)];
     getCardImageDealer(dealerCardTwo);
+    dealerCards.push(dealerCardOne, dealerCardTwo)
+    dealerScore = calculatePointsDealer(dealerCards, dealerCards.length)
 }
 
 function dealHand () {
@@ -56,8 +66,8 @@ function hit () {
     getCardImagePlayer(hitCard);
     const dealerHit = deck[Math.floor(Math.random()*deck.length)];
     getCardImageDealer(dealerHit)
-    playerScore = calculatePoints(playerCards, playerCards.length)
-    playerPoints.append(playerScore)
+    playerScore = calculatePointsPlayer(playerCards, playerCards.length)
+    dealerScore = calculatePointsDealer(dealerCards, dealerCards.length)
 }
 
 function stand () {
@@ -65,22 +75,22 @@ function stand () {
     getCardImageDealer(dealerHit)
 }
 
-function calculatePoints (arr, size) {
+function calculatePointsPlayer (arr, size) {
     let sum = 0;
     for(let i=0; i<size;i++) {
         sum += arr[i].pointValue;
     }
-    console.log(sum)
+    playerPoints.append(sum)
     return sum
 }
 
-
-
-
-for (let suit of suits) {
-    for (const rank of ranks) {
-    makeDeck(rank, suit);
+function calculatePointsDealer (arr, size) {
+    let sum = 0;
+    for(let i=0; i<size;i++) {
+        sum += arr[i].pointValue;
     }
+    dealerPoints + sum
+    return sum
 }
 
 window.addEventListener("DOMContentLoaded", () => {
@@ -89,3 +99,4 @@ window.addEventListener("DOMContentLoaded", () => {
 
 dealButton.addEventListener("click", dealHand)
 hitButton.addEventListener("click", hit)
+
