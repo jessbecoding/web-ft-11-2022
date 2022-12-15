@@ -5,9 +5,9 @@ const hitButton = document.getElementById("hit-button");
 const standButton = document.getElementById("stand-button");
 const playerPoints = document.getElementById("player-points");
 const dealerPoints = document.getElementById("dealer-points");
-const deck = [];
-const playerCards = [];
-const dealerCards = [];
+let deck = [];
+let playerCards = [];
+let dealerCards = [];
 const suits = ["hearts", "spades", "clubs", "diamonds"];
 const ranks = ["ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, "jack", "queen", "king"];
 
@@ -19,6 +19,10 @@ const makeDeck = (rank, suit) => {
     };
     deck.push(card);
 };
+
+function shuffleDeck (arr) {
+    arr.sort(Math.random()*deck.length)
+}
 
 for (let suit of suits) {
     for (const rank of ranks) {
@@ -57,6 +61,10 @@ function dealDealer () {
 }
 
 function dealHand () {
+    playerHand.innerHTML = null
+    dealerHand.innerHTML = null
+    playerCards = []
+    dealerCards = []
     dealPlayer();
     dealDealer();
 }
@@ -66,6 +74,9 @@ function hitPlayer () {
     getCardImagePlayer(playerCardOne);
     playerCards.push(playerCardOne)
     playerScore = calculatePointsPlayer(playerCards, playerCards.length)
+    if (playerPoints.innerText > 21) {
+        playerPoints.innerText = ("BUST! You lose. Press Deal to Play Again!")
+    }
 }
 
 function hitDealer () {
@@ -75,24 +86,18 @@ function hitDealer () {
     dealerScore = calculatePointsDealer(dealerCards, dealerCards.length)
 }
 
-function hit() {
-    hitPlayer()
-    hitDealer()
-}
-
 function stand () {
-    const dealerHit = deck[Math.floor(Math.random()*deck.length)];
-    getCardImageDealer(dealerHit)
-    dealerCards.push(dealerCardOne)
-    dealerScore = calculatePointsDealer(dealerCards, dealerCards.length)
+    if (dealerPoints.innerText < 16) {
+        hitDealer();
+    }
 }
 
-const faceCardPoints = (hand = [], score = 0) => {
+const cardPoints = (hand = [], score = 0) => {
     for (const card of hand) {
-        switch (card.rank) {
+        switch (card.pointValue) {
             case "ace":
                 if (score > 10) score += 1;
-                if (score <=10) score =+ 11;
+                if (score <=10) score += 11;
                 break;
             case "jack":
                 score += 10;
@@ -103,33 +108,33 @@ const faceCardPoints = (hand = [], score = 0) => {
             case "king":
                 score += 10;
                 break;
+            default:
+                score += card.pointValue
         }
     }
+    return score;
 }
 
-function calculatePointsPlayer (arr, size) {
+function calculatePointsPlayer (playerCards) {
     let score = 0;
-    for(let i=0; i<size;i++) {
-        score += arr[i].pointValue;
-        faceCardPoints(playerCards, 0);
-    }
+    score = cardPoints(playerCards, score)
     playerPoints.innerText = score
+    return score;
 }
 
-function calculatePointsDealer (arr, size) {
+function calculatePointsDealer (dealerCards) {
     let score = 0;
-    for(let i=0; i<size;i++) {
-        score += arr[i].pointValue;
-        faceCardPoints(dealerCards, 0);
-    }
+    score = cardPoints(dealerCards, score)
     dealerPoints.innerText = score
+    return score;
 }
+
+
 
 window.addEventListener("DOMContentLoaded", () => {
   // Execute after page load
 });
 
-dealButton.addEventListener("click", dealHand, calculatePointsDealer, calculatePointsPlayer)
-hitButton.addEventListener("click", hit, calculatePointsDealer, calculatePointsPlayer)
-standButton.addEventListener("click", stand, calculatePointsDealer, calculatePointsPlayer)
-
+dealButton.addEventListener("click", dealHand, calculatePointsDealer(dealerCards, 0), calculatePointsPlayer(playerCards, 0))
+hitButton.addEventListener("click", hitPlayer, calculatePointsDealer(dealerCards, 0), calculatePointsPlayer(playerCards, 0))
+standButton.addEventListener("click", stand, calculatePointsDealer(dealerCards, 0), calculatePointsPlayer(playerCards, 0))
