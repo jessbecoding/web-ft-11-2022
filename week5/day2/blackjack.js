@@ -20,10 +20,6 @@ const makeDeck = (rank, suit) => {
     deck.push(card);
 };
 
-function shuffleDeck (arr) {
-    arr.sort(Math.random()*deck.length)
-}
-
 for (let suit of suits) {
     for (const rank of ranks) {
     makeDeck(rank, suit);
@@ -92,12 +88,16 @@ function stand () {
     }
 }
 
+function hit () {
+    
+}
+
 const cardPoints = (hand = [], score = 0) => {
     for (const card of hand) {
         switch (card.pointValue) {
             case "ace":
                 if (score > 10) score += 1;
-                if (score <=10) score += 11;
+                if (score <= 10) score += 11;
                 break;
             case "jack":
                 score += 10;
