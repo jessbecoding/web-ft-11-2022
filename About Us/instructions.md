@@ -1,1 +1,0 @@
-Put your about me pages inside this folder
