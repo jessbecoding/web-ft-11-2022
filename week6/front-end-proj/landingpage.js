@@ -1,7 +1,7 @@
 // API INFO ONLY CHANGE TOKEN
 
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer {TOKEN HERE}");
+myHeaders.append("Authorization", "Bearer {Token Here}");
 
 var requestOptions = {
     method: 'GET',
@@ -31,7 +31,7 @@ const searchPetsByZip = async () => {
         const petPhoto = document.createElement("img");
         petPhoto.className = "petPhoto";
         petPhoto.src = animal.photos.medium
-        petPhoto.onerror = ""
+        petPhoto.onerror = petPhoto.src = "karsten-winegeart-Qb7D1xw28Co-unsplash.jpg"
         const petName = document.createElement("h1");
         petName.className = "petName";
         petName.innerText = animal.name;
