@@ -16,7 +16,7 @@ const zipSubmit = document.querySelector(".zipSubmit");
 
 const searchPetsByZip = async () => {
     const petCardContainer = document.querySelector(".petCardContainer");
-    petCardContainer.innerHTML = "";
+    // petCardContainer.innerHTML = "";
     const zipInput = document.querySelector(".zipInput")
     const petZipURL = `https://api.petfinder.com/v2/animals?location=${zipInput.value}`;
     const petData = await fetch(petZipURL, requestOptions);
@@ -30,13 +30,13 @@ const searchPetsByZip = async () => {
         petCard.className = "petCard";
         const petPhoto = document.createElement("img");
         petPhoto.className = "petPhoto";
-        // petPhoto.src = animal.photos.medium
+        petPhoto.src = animal.photos.medium
         const petName = document.createElement("h1");
         petName.className = "petName";
         petName.innerText = animal.name
-        petCard.append(petName)
-        mainContainer.append(petCard)
-        // console.log(animal.photos.medium)
+        petCard.append(petName, petPhoto)
+        petCard.append(mainContainer)
+       
     });
 }
 
