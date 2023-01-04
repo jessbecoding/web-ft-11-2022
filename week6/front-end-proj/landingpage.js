@@ -1,7 +1,7 @@
 // API INFO ONLY CHANGE TOKEN
 
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer {Token Here}");
+myHeaders.append("Authorization", "Bearer {TOKEN HERE}");
 
 var requestOptions = {
     method: 'GET',
@@ -19,7 +19,6 @@ const searchPetsByZip = async () => {
     petCardContainer.innerHTML = "";
     const zipInput = document.querySelector(".zipInput")
     const petZipURL = `https://api.petfinder.com/v2/animals?location=${zipInput.value}`;
-    console.log (petZipURL)
     const petData = await fetch(petZipURL, requestOptions);
     const json = await petData.json();
     jsonHome = json.animals
@@ -28,10 +27,11 @@ const searchPetsByZip = async () => {
     jsonHome.forEach(animal => {
         const petCard = document.createElement("div");
         petCard.className = "petCard";
-        const petPhoto = document.createElement("img");
-        petPhoto.className = "petPhoto";
-        petPhoto.src = animal.photos.medium
-        petPhoto.onerror = petPhoto.src = "karsten-winegeart-Qb7D1xw28Co-unsplash.jpg"
+        // const petPhoto = document.createElement("a");
+        // petPhoto.className = "petPhoto";
+        // petPhoto.href = animal.url
+        // petPhoto.src = animal.primary_photo_cropped.small;
+        // petPhoto.onerror = petPhoto.src = "karsten-winegeart-Qb7D1xw28Co-unsplash.jpg";
         const petName = document.createElement("h1");
         petName.className = "petName";
         petName.innerText = animal.name;
