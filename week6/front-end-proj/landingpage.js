@@ -18,7 +18,7 @@ const searchPetsByZip = async () => {
     const petCardContainer = document.querySelector(".petCardContainer");
     petCardContainer.innerHTML = "";
     const zipInput = document.querySelector(".zipInput")
-    const petZipURL = `https://api.petfinder.com/v2/animals?location=${zipInput.value}`;
+    const petZipURL = `https://api.petfinder.com/v2/animals/?location=${zipInput.value}`;
     const petData = await fetch(petZipURL, requestOptions);
     const json = await petData.json();
     jsonHome = json.animals
@@ -27,11 +27,13 @@ const searchPetsByZip = async () => {
     jsonHome.forEach(animal => {
         const petCard = document.createElement("div");
         petCard.className = "petCard";
-        // const petPhoto = document.createElement("a");
-        // petPhoto.className = "petPhoto";
-        // petPhoto.href = animal.url
-        // petPhoto.src = animal.primary_photo_cropped.small;
-        // petPhoto.onerror = petPhoto.src = "karsten-winegeart-Qb7D1xw28Co-unsplash.jpg";
+        console.log(animal?.primary_photo_cropped?.small)
+        const petPhoto = document.createElement("img");
+        petPhoto.className = "petPhoto";
+        petPhoto.src = animal?.primary_photo_cropped?.small ? animal?.primary_photo_cropped?.small: "https://st2.depositphotos.com/12093440/44102/v/950/depositphotos_441020378-stock-illustration-page-404-link-to-non.jpg"
+        petPhoto.onclick = function() {
+            window.location.href = "petDetails.html"
+        }
         const petName = document.createElement("h1");
         petName.className = "petName";
         petName.innerText = animal.name;
