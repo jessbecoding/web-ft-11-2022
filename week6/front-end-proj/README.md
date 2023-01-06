@@ -82,6 +82,8 @@ For the color scheme, I used (https://imagecolorpicker.com/en) and a free 404 im
 
 <img src = ".\Palette.png">
 
+Hex codes are below:
+
 ```
 rose-fog: #e3c4ac;
 armadillo: #393932;
