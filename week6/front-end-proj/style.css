@@ -50,7 +50,90 @@ body {
     transform: rotate(-45deg) translateY(6px) translateX(-6px);
 }
 
-.pawsibilityLogo {
+
+.zipSubmit {
+  background-color: #95a595;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #282823;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-1:hover,
+.button-1:focus {
+  background-color: #F082AC;
+}
+
+img {
+    width: 300px;
+    height: 100%;
+    object-fit: cover;
+}
+
+.petCardContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    gap: 1em;
+}
+
+.petPhoto {
+    object-fit: contain;
+}
+
+.searchInput {
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+}
+
+.zipInputContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.petPhoto {
+    width: 200px;
     height: 150px;
-    wight: 100%
+    background-size: cover;
+    justify-content: center;
+}
+
+.petCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.pawsibilityLogo {
+    height: 100px;
+    width: fit-content;
+    background-size: auto;
+}
+
+.shelterName:hover {
+    color: #95a595;
+    text-decoration: overline underline;
+    text-decoration-color: #745b4d;
+    text-decoration-style: dotted;
+    text-decoration-thickness: 2px;
 }

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search Pets</title>
+    <title>Find A Shelter</title>
     <link defer rel="stylesheet" href="./dist/output.css">
     <link defer rel="stylesheet" href="style.css">
 </head>
@@ -17,9 +17,9 @@
             <img class= "pawsibilityLogo" src=".\pawsibilityLogo.png" alt="">
            </div> 
            <div class="hidden md:flex space-x-6">
-            <a href=".\landingPage.html">Home</a>
-                <a href=".\searchShelters.html">Find A Shelter</a>
-                <a href="#">About</a>
+            <a href=".\landingPage.html" class="hover:text-green">Home</a>
+            <a href=".\searchByZip.html">Search Pets</a>
+            <a href="#" class="hover:text-green">About</a>
            </div>
            <!-- Hamburger Icon -->
            <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
@@ -34,7 +34,7 @@
             id="menu" 
             class="absolute flex flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
                 <a href=".\landingPage.html">Home</a>
-                <a href=".\searchShelters.html">Find A Shelter</a>
+                <a href=".\searchByZip.html">Search Pets</a>
                 <a href="#">About</a>
             </div>
         </div>
@@ -47,10 +47,10 @@
                 <button class = "zipSubmit">Search</button>
             </div>
         </div>
-        <div class="petCardContainer">
+        <div class="shelterCardContainer">
 
         </div>
     </main>
 </body>
-<script src="searchByZip.js"></script>
+<script src="searchShelters.js"></script>
 </html>

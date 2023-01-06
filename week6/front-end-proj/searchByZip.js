@@ -1,6 +1,6 @@
 // API INFO ONLY CHANGE TOKEN
 var myHeaders = new Headers();
-myHeaders.append("Authorization", "Bearer {TOKEN HERE");
+myHeaders.append("Authorization", "Bearer {TOKEN HERE}");
 
 var requestOptions = {
     method: 'GET',
@@ -13,8 +13,11 @@ var requestOptions = {
 const mainContainer = document.querySelector(".mainContainer");
 const zipSubmit = document.querySelector(".zipSubmit");
 
+// function capitalizeFirstLetter(name) {
+//     return name.charAt(0).toUpperCase() + name.slice(1).toLowerCase();
+// }
+
 const searchPetsByZip = async () => {
-    console.log('button clickced')
     const petCardContainer = document.querySelector(".petCardContainer");
     petCardContainer.innerHTML = "";
     const zipInput = document.querySelector(".zipInput")
@@ -26,8 +29,6 @@ const searchPetsByZip = async () => {
     
     
     jsonHome.forEach(animal => {
-        console.log('animal created')
-        console.log(animal)
         const petCard = document.createElement("div");
         petCard.className = "petCard";
         const petPhoto = document.createElement("img");
@@ -37,6 +38,7 @@ const searchPetsByZip = async () => {
         const petName = document.createElement("h1");
         petName.className = "petName";
         petName.innerText = animal.name;
+        // capitalizeFirstLetter(petName);
         petCard.append(petName, petPhoto);
         petCardContainer.append(petCard);
         mainContainer.append(petCardContainer)        
