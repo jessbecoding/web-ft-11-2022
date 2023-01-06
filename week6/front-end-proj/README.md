@@ -33,4 +33,5 @@ myHeaders.append("Authorization", "Bearer {TOKEN HERE}");
 var requestOptions = {
     method: 'GET',
     headers: myHeaders,
-    redirect: 'follow'```
+    redirect: 'follow'
+```
