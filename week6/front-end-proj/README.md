@@ -96,6 +96,6 @@ roman-coffee: #755b4a;
 ```
 
 # Thank you!
-Thanks so much for reading and taking a look at this project. I actually was able to adopt a dog in the middle of this, bonus picture of Millie for tax:
+Thanks so much for reading and taking a look at this project. I actually was able to adopt a dog in the middle of this, bonus picture of Millie for tax:</br>
 <img src = ".\millie.jpg" width="300">
 
