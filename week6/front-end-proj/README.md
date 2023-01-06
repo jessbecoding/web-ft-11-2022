@@ -80,5 +80,5 @@ The custom CSS was very simple. I tried to focus on grid and flex as those seem 
 
 # Thank you!
 Thanks so much for reading and taking a look at this project. I actually was able to adopt a dog in the middle of this, bonus picture of Millie for tax:
-<img src = ".\millie.jpg">
+<img src = ".\millie.jpg" width="300">
 
