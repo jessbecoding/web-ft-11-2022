@@ -10,12 +10,12 @@ I decided on the Petfinder API because it seemed to most robust of the options I
 The first big challenge was simply accessing the API. I was more familiar with using an API key to access the database, but Petfinder’s API utilizes an API key and an access token. Once I was able to get a tab in Postman set up where all I needed to do was send and it would populate the bearer token, it was much smoother sailing. Then, I was having issues getting images on the screen. The API was returning null on most of all the photos. That seemed the be a problem with the API as simply waiting saw the return of the image links. Still, there was a lot of inconsistency surrounding where the photo URLS were stored in the API. There was a ‘photo’ section as well as a ‘primary_photo_cropped’ section to pull from. This is where the turnery operator came in handy. I was able to set an alternate 404 image so there would at least be something there rather than a broken image icon. If I had more time, I’d play with that turnery more and see if I could add a second option to pull from before the error image displays. 
 
 # Getting Started
-1.	Navigate to https://www.petfinder.com/developers/ and click the “Get An API Key” button
+1.	Navigate to the <a href= "https://www.petfinder.com/developers/">Petfinder API</a> and click the “Get An API Key” button
 2.	Create an account
 3.	Once account is created, you can click “For Developers”
 4.	Fill out the details of your project and what context you’ll be using the API for (personal, business, school, etc.) and click “Request a Key”
 5.	The API key will display on the next page along with a “secret.” This is used to request private information, which I won’t go into as this project is focused on the frontend. You will need this secret to set up Postman for the bearer token. 
-6.	If you haven’t already, install Postman (https://www.postman.com/downloads/)
+6.	If you haven’t already, install <a href="https://www.postman.com/downloads/">Postman</a>.
 7.	Create a new request to match this screen shot (type in your own client ID (API Key) and secret:
 
 <img src = ".\PostmanScreenShot.png">
@@ -71,17 +71,15 @@ const searchPetsByZip = async () => {
 
 zipSubmit.addEventListener("click",searchPetsByZip);
 ```
-If you wanted to try this for yourself and access different information within the API, I reccommend taking a look at the API support docs here (https://www.petfinder.com/developers/v2/docs/) and using the above as a guide.
+If you wanted to try this for yourself and access different information within the API, I reccommend taking a look at the API support docs <a href="https://www.petfinder.com/developers/v2/docs/">here</a> and using the above as a guide.
 
 # CSS and Tailwind CSS
-I started with Tailwind on the landing page. I followed this handy tutorial (https://www.youtube.com/watch?v=dFgzHOX84xQ&t=1983s) that was shared by a classmate, and tried to make it my own.
+I started with Tailwind on the landing page. I followed this handy <a href="https://www.youtube.com/watch?v=dFgzHOX84xQ&t=1983s">tutorial</a> that was shared by a classmate, and tried to make it my own.
 
 The custom CSS was very simple. I tried to focus on grid and flex as those seem to be my greatest areas of opportunity. It was definitely a challenge but, I found the elements section of the developer tools in chrome very helpful.
 
-For the color scheme, I used (https://imagecolorpicker.com/en) and a free 404 image I found online as insiration. That got me this color pallet:
-
+For the color scheme, I used <a href="https://imagecolorpicker.com/en">Image Color Picker</a> and a free 404 image I found online as inspiration. That got me this color pallet:
 <img src = ".\Palette.png">
-
 Hex codes are below:
 
 ```
