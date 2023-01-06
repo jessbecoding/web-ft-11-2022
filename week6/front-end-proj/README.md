@@ -78,6 +78,20 @@ I started with Tailwind on the landing page. I followed this handy tutorial (htt
 
 The custom CSS was very simple. I tried to focus on grid and flex as those seem to be my greatest areas of opportunity. It was definitely a challenge but, I found the elements section of the developer tools in chrome very helpful.
 
+For the color scheme, I used (https://imagecolorpicker.com/en) and a free 404 image I found online as insiration. That got me this color pallet:
+
+<img src = ".\Palette.png">
+```
+rose-fog: #e3c4ac;
+armadillo: #393932;
+merino: #f7f1e7;
+tapa: #7d766d;
+lemon-grass: #99a093;
+natural-gray: #8a8681;
+parchment: #f2e5d1;
+roman-coffee: #755b4a;
+```
+
 # Thank you!
 Thanks so much for reading and taking a look at this project. I actually was able to adopt a dog in the middle of this, bonus picture of Millie for tax:
 <img src = ".\millie.jpg" width="300">
