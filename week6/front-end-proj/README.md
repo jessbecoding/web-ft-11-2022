@@ -27,10 +27,10 @@ I started by hard coding the elements in the Search Pets page. I created an inpu
 
 # JavaScript
 The JavaScipt for the Search Pet and Search Shelter page are very similar, so I'll speak broadly here. First, I linked the API to the JS file. 
-`var myHeaders = new Headers();
+```var myHeaders = new Headers();
 myHeaders.append("Authorization", "Bearer {TOKEN HERE}");
 
 var requestOptions = {
     method: 'GET',
     headers: myHeaders,
-    redirect: 'follow'`
+    redirect: 'follow'```
