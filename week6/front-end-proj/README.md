@@ -18,7 +18,7 @@ The first big challenge was simply accessing the API. I was more familiar with u
 6.	If you haven’t already, install Postman (https://www.postman.com/downloads/)
 7.	Create a new request to match this screen shot (type in your own client ID (API Key) and secret:
 
-![alt text](file:///C:/Users/jsskl/OneDrive/Desktop/PostmanScreenShot.png)
+![alt text](..\PostmanScreenShot.png)
 
 8.	Click send and you should see an access token appear in the terminal (Note: This token expires every hour)
 
