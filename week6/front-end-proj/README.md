@@ -81,6 +81,7 @@ The custom CSS was very simple. I tried to focus on grid and flex as those seem 
 For the color scheme, I used (https://imagecolorpicker.com/en) and a free 404 image I found online as insiration. That got me this color pallet:
 
 <img src = ".\Palette.png">
+
 ```
 rose-fog: #e3c4ac;
 armadillo: #393932;
