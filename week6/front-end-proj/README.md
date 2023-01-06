@@ -71,3 +71,12 @@ const searchPetsByZip = async () => {
 
 zipSubmit.addEventListener("click",searchPetsByZip);
 ```
+If you wanted to try this for yourself and access different information within the API, I reccommend taking a look at the API support docs here (https://www.petfinder.com/developers/v2/docs/) and using the above as a guide.
+
+# CSS and Tailwind CSS
+I started with Tailwind on the landing page. I followed this handy tutorial (https://www.youtube.com/watch?v=dFgzHOX84xQ&t=1983s) that was shared by a classmate, and tried to make it my own.
+
+The custom CSS was very simple. I tried to focus on grid and flex as those seem to be my greatest areas of opportunity. It was definitely a challenge but, I found the elements section of the developer tools in chrome very helpful.
+
+# Thank you!
+Thanks so much for reading and taking a look at this project. I actually was able to adopt a dog in the middle of this, bonus picture of Millie for tax:
