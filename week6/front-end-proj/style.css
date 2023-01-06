@@ -137,3 +137,26 @@ img {
     text-decoration-style: dotted;
     text-decoration-thickness: 2px;
 }
+
+.aboutHead {
+    display: grid;
+    gap: 5%;
+}
+
+.body {
+    display: grid;
+    gap: 3%;
+}
+
+.aboutHeader {
+    color: #e6c2a8;
+    font-size: xx-large;
+    font: bolder;
+    text-align: center;
+}
+
+.title {
+    color: #79644c;
+    font-size: large;
+    font: bold;
+}

@@ -10,35 +10,36 @@
 </head>
 <body>
     <main class = "mainContainer">
-        <!-- Nav Bar -->
-    <nav class="relative container bg-offWhite">     
-        <div class="flex items-center justify-between">
-           <div class="pt-2">
-            <img class= "pawsibilityLogo" src=".\pawsibilityLogo.png" alt="">
-           </div> 
-           <div class="hidden md:flex space-x-6">
-            <a href=".\landingPage.html">Home</a>
-                <a href=".\searchShelters.html">Find A Shelter</a>
-                <a href=".\about.html">About</a>
-           </div>
-           <!-- Hamburger Icon -->
-           <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
-            <span class="hamburger-top"></span>
-            <span class="hamburger-middle"></span>
-            <span class="hamburger-bottom"></span>
-           </button>
+<!-- Nav Bar -->
+<nav class="relative container bg-offWhite">     
+    <div class="flex items-center justify-between">
+       <div class="pt-2">
+        <img class= "pawsibilityLogo" src=".\pawsibilityLogo.png" alt="">
+       </div> 
+       <div class="hidden md:flex space-x-6">
+        <a href=".\landingPage.html" class="hover:text-green">Home</a>
+        <a href=".\searchShelters.html" class="hover:text-green">Find A Shelter</a>
+        <a href=".\about.html" class="hover:text-green">About</a>
+       </div>
+       <!-- Hamburger Icon -->
+       <button id="menu-btn" class="block hamburger md:hidden focus:outline-none">
+        <span class="hamburger-top"></span>
+        <span class="hamburger-middle"></span>
+        <span class="hamburger-bottom"></span>
+       </button>
+    </div>
+    <div class="md:hidden">
+        <!-- Hamburger Menu -->
+        <div 
+        id="menu" 
+        class="absolute flex flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
+            <a href=".\landingPage.html" class="hover:text-green">Home</a>
+            <a href=".\searchShelters.html" class="hover:text-green">Find A Shelter</a>
+            <a href=".\about.html" class="hover:text-green">About</a>
         </div>
-        <div class="md:hidden">
-            <!-- Hamburger Menu -->
-            <div 
-            id="menu" 
-            class="absolute flex flex-col items-center hidden self-end py-8 mt-10 space-y-6 font-bold bg-white sm:w-auto sm:self-center left-6 right-6 drop-shadow-md">
-                <a href=".\landingPage.html">Home</a>
-                <a href=".\searchShelters.html">Find A Shelter</a>
-                <a href="#">About</a>
-            </div>
-        </div>
-    </nav>
+    </div>
+</nav>        
+    <h1 class="aboutHeader">Find Your Bestie</h1>
         <div class = "searchInput">
             <div class = "zipInputContainer">
                 <input class = "zipInput" placeholder="Enter your zip code" type="number">
@@ -53,4 +54,5 @@
     </main>
 </body>
 <script src="searchByZip.js"></script>
+<script src="landingPage.js"></script>
 </html>
