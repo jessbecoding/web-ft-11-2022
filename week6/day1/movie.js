@@ -20,7 +20,7 @@ const searchMovies = async () => {
       // p
     const movieYear = document.createElement("p");
     const imdbID = movie.imdbID;
-    const individualMovieData = `http://www.omdbapi.com/?apikey=c2b8d3c5&i=${imdbID}`;
+    const individualMovieData = `http://www.omdbapi.com/?apikey={API KEY HERE}}=${imdbID}`;
     const fetchIndividualMovie = await fetch(individualMovieData);
     const individualJson = await fetchIndividualMovie.json();
       // modify
