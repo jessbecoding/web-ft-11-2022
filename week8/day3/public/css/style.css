@@ -1,0 +1,106 @@
+.row1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.row2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.nameIntro {
+  width: 30%;
+}
+
+.job {
+  width: 70%;
+}
+
+.img-thumbnail {
+  max-width: 30%;
+  display: flex;
+}
+
+.about {
+  display: flex;
+  width: 70%;
+}
+
+.aboutPara {
+  margin-left: 10%;
+}
+
+hr {
+  display: block;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 7px;
+}
+
+hr::before {
+  display: block;
+  margin: 0.5em;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 7px;
+}
+
+hr::after {
+  display: block;
+  margin: 0.5em;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 7px;
+}
+
+.sideBar {
+  background-color: #037580;
+  color: #037580;
+  width: 16%;
+  height: 100vh;
+}
+
+.nav-link {
+  color: white;
+  padding: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.navbar-brand {
+  color: white;
+  margin: 10px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.searchBar {
+  width: 100%;
+  height: 25px;
+}
+
+.container {
+  display: flex;
+  height: 100%;
+}
+
+.searchBar {
+  width: 100%;
+}

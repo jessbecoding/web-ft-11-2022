@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include('../partials/minHead'); %>
+  </head>
+    <main>
+      <div class="jumbotron">
+        <div class="row1">
+          <h3 class = "nameIntro">Hi! My name is <%= me.name %>.</h3>
+          <div class = "jobBox">
+            <p class="job">
+            I'm currently a <%= me.occupation %> at DigitalCrafts studying
+            fullstack web development.
+            </p>
+          </div>
+        </div>
+        <hr>
+        <div class="row2">
+          <img class="img-thumbnail" src= <%= me.profilePic %> > </img>
+          <div class="about">
+            <p class = "aboutPara">I live in <%= me.city %>. My favorite color right now is a <%= me.favoriteColor %>. Crate training puppies is very hard. Please send earplugs.</p>
+          </div>
+      </div>
+      </div>
+    </main>
+
+    <footer><%- include('../partials/footer'); %></footer>
+  </body>
+</html>
