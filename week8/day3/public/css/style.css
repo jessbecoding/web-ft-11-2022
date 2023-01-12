@@ -59,7 +59,7 @@ hr::after {
 .sideBar {
   background-color: #037580;
   color: #037580;
-  width: 16%;
+  width: 25vh;
   height: 100vh;
 }
 
@@ -92,15 +92,20 @@ a:active {
 }
 
 .searchBar {
-  width: 100%;
+  width: 75vh;
   height: 25px;
 }
 
 .container {
   display: flex;
-  height: 100%;
+  flex-wrap: wrap;
 }
 
-.searchBar {
-  width: 100%;
+.overviewCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.recentActivity_bar {
+  display: flex;
 }
