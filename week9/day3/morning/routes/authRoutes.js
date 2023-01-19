@@ -21,7 +21,7 @@ router.post("/login_user", async (req, res) => {
   const { username, password } = req.body;
   const user = await Users.findOne({
     where: {
-      username: "blossom",
+      username: username,
     },
   });
   bcrypt.compare(password, user.password(err, res));
