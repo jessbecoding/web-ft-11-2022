@@ -8,11 +8,6 @@ const PokemonHomepage = ({ pokemon }) => {
       <h1>Pokemon Homepage</h1>
       {pokemon.map((poke) => (
         <PokemonInfo poke={poke} />
-        // <>
-        //   <<Link to="/pokemoncard">
-        //     <h3>{poke?.name}</h3>
-        //   </Link>>
-        // </>
       ))}
       ;
     </div>

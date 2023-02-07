@@ -24,7 +24,9 @@ const PokemonCard = () => {
     <div>
       <h3>{pokemon?.name}</h3>
       <img src={pokemon?.sprites?.front_default} alt="" />
-      <p>{pokemon?.types?.type?.name}</p>
+      <ul>
+        <li>{pokemon?.types?.type?.name}</li>
+      </ul>
     </div>
   );
 };
