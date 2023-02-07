@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-const PokemonInfo = () => {
+const PokemonInfo = ({ poke }) => {
   return (
     <div>
-      <h1>Pokemon Info</h1>
+      <Link to="/pokemoncard" state={poke.url}>
+        <h3>{poke?.name}</h3>
+      </Link>
     </div>
   );
 };

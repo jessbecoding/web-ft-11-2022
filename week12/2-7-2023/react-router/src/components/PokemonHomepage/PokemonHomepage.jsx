@@ -1,15 +1,18 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import PokemonInfo from "../PokemonInfo/PokemonInfo";
 
 const PokemonHomepage = ({ pokemon }) => {
   return (
     <div>
       <h1>Pokemon Homepage</h1>
       {pokemon.map((poke) => (
-        <>
-          <h3>{poke.name}</h3>
-          {/* <PokemonInfo poke={pokemon} /> */}
-          {/* <img src={poke.url}></img> */}
-        </>
+        <PokemonInfo poke={poke} />
+        // <>
+        //   <<Link to="/pokemoncard">
+        //     <h3>{poke?.name}</h3>
+        //   </Link>>
+        // </>
       ))}
       ;
     </div>

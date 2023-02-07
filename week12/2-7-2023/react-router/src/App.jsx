@@ -26,11 +26,11 @@ function App() {
           <Route path=":id" element={<AccountUser user={user} />} />
         </Route>
         <Route
-          path="PokemonHomepage"
+          path="/pokemonhomepage"
           element={<PokemonHomepage pokemon={pokemonData} />}
         />
-        <Route path="PokemonInfo" element={<PokemonInfo />} />
-        <Route path="PokemonCard" element={<PokemonCard />} />
+        <Route path="/pokemoninfo" element={<PokemonInfo />} />
+        <Route path="/pokemoncard" element={<PokemonCard />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>

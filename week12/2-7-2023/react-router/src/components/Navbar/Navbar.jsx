@@ -6,6 +6,7 @@ const Navbar = () => {
     <nav>
       <Link to="/homepage">Home</Link>
       <Link to="/account">Account</Link>
+      <Link to="/pokemonhomepage">Pokemon Homepage</Link>
     </nav>
   );
 };
