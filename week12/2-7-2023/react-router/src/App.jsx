@@ -10,9 +10,11 @@ import Navbar from "./components/Navbar/Navbar";
 import AccountSettings from "./components/Account/AccountSettings";
 import AccountUser from "./components/Account/AccountUser";
 import { useState } from "react";
+import pokemon from "./components/pokemonData";
 
 function App() {
   const [user, setUser] = useState("Jess");
+  const [pokemonData, setPokemon] = useState(pokemon);
   return (
     <>
       <Navbar />
@@ -23,7 +25,10 @@ function App() {
           <Route path="settings" element={<AccountSettings user={user} />} />
           <Route path=":id" element={<AccountUser user={user} />} />
         </Route>
-        <Route path="PokemonHomepage" element={<PokemonHomepage />} />
+        <Route
+          path="PokemonHomepage"
+          element={<PokemonHomepage pokemon={pokemonData} />}
+        />
         <Route path="PokemonInfo" element={<PokemonInfo />} />
         <Route path="PokemonCard" element={<PokemonCard />} />
         <Route path="*" element={<ErrorPage />} />
