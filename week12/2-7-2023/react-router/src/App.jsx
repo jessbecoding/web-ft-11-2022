@@ -3,23 +3,29 @@ import "./App.css";
 import Account from "./components/Account/Account";
 import ErrorPage from "./components/ErrorPage/ErrorPage";
 import Homepage from "./components/Homepage/Homepage";
+import PokemonHomepage from "./components/PokemonHomepage/PokemonHomepage";
+import PokemonInfo from "./components/PokemonInfo/PokemonInfo";
+import PokemonCard from "./components/PokemonCard/PokemonCard";
 import Navbar from "./components/Navbar/Navbar";
 import AccountSettings from "./components/Account/AccountSettings";
 import AccountUser from "./components/Account/AccountUser";
 import { useState } from "react";
 
 function App() {
-  const [user, setUser] = useState("Joe");
+  const [user, setUser] = useState("Jess");
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/homepage" element={<Homepage user={user} />} />
         <Route path="/account">
-          <Route index element={<Account />} />
-          <Route path="settings" element={<AccountSettings />} />
-          <Route path=":id" element={<AccountUser />} />
+          <Route index element={<Account user={user} />} />
+          <Route path="settings" element={<AccountSettings user={user} />} />
+          <Route path=":id" element={<AccountUser user={user} />} />
         </Route>
+        <Route path="PokemonHomepage" element={<PokemonHomepage />} />
+        <Route path="PokemonInfo" element={<PokemonInfo />} />
+        <Route path="PokemonCard" element={<PokemonCard />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </>
