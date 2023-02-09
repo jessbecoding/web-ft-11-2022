@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const SignUp = () => {
   const [signUpForm, setSignUpForm] = useState({});
@@ -10,28 +12,19 @@ const SignUp = () => {
     });
   };
 
-  const submitForm = () => {
-    // username needs to be at least 6 characters long and less than 14
-    if (signUpForm?.username?.length <= 6 || signUpForm.username.length >= 14) {
-      window.alert("Username needs to be between 6 and 14 characters long.");
-    }
-    // password has special character, at least three numbers, at least 6 characters
-    if (signUpForm?.password.length < 6) {
-      window.alert("Your password needs to be at least 6 characters.");
-    }
-
-    // email: @ symbol
-    if (!signUpForm?.email?.includes("@")) {
-      window.alert("Invalid email format.");
-    }
+  const authenticateForm = () => {
+    // if any information is missing "Please fill out all fields."
+    // if firstName, lastName, city have numbers, "Invalid character, please try again."
   };
   return (
-    <div className="gridw-full max-w-xl bg-divPurple px-5 py-10">
-      <div className="text-pretendWhite text-5xl">ADD STUDENT</div>
-      <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-        <div className="mb-4">
+    <div className="grid w-full max-w-xl bg-gradient-to-b from-divPurple to-darkPurple px-5 py-10">
+      <div className="flex flex-col items-center text-pretendWhite text-5xl">
+        ADD STUDENT
+      </div>
+      <form className="appearance-none">
+        <div className="mb-4 border-b border-pretendWhite">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-buttonPink text-sm font-bold mb-2"
             for="username"
           >
             Username<i class="fa-solid fa-user"></i>
@@ -47,10 +40,10 @@ const SignUp = () => {
           />
         </div>
 
-        <div className="flex">
-          <div className="mb-6">
+        <div className="flex justify-between">
+          <div className="w-48 mb-6 border-b border-pretendWhite">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-buttonPink text-sm font-bold mb-2"
               for="password"
             >
               First Name
@@ -65,15 +58,15 @@ const SignUp = () => {
               value={signUpForm.firstName ? signUpForm.firstName : ""}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-6 border-b border-pretendWhite">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-buttonPink text-sm font-bold mb-2"
               for="password"
             >
               Last Name
             </label>
             <input
-              className="bg-divPurple border-none placeholder-textPurple"
+              className="w-48 bg-divPurple border-none placeholder-textPurple"
               id="lastName"
               type="text"
               placeholder="Doe"
@@ -83,9 +76,9 @@ const SignUp = () => {
             />
           </div>
         </div>
-        <div className="mb-6">
+        <div className="mb-6 border-b border-pretendWhite">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-buttonPink text-sm font-bold mb-2"
             for="password"
           >
             Address
@@ -100,36 +93,40 @@ const SignUp = () => {
             value={signUpForm.address ? signUpForm.address : ""}
           />
         </div>
-        <div className="flex">
-          <div className="mb-6">
+        <div className="flex justify-between">
+          <div className="mb-6 border-b border-pretendWhite">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-buttonPink text-sm font-bold mb-2"
               for="password"
             >
               City
             </label>
             <input
-              className="bg-divPurple border-none placeholder-textPurple"
+              className="w-24 bg-divPurple border-none placeholder-textPurple"
               id="city"
               type="text"
-              placeholder="Phoenix"
+              placeholder="City"
               name="city"
               onChange={(e) => setFormState(e)}
               value={signUpForm.city ? signUpForm.city : ""}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-6 border-b border-pretendWhite">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-buttonPink text-sm font-bold mb-2"
               for="password"
             >
               State
             </label>
             <select
               className="w-25 bg-divPurple border-none text-textPurple"
+              placeholder="State"
               onChange={(e) => setFormState(e)}
               value={signUpForm.state ? signUpForm.state : ""}
             >
+              <option value="" disabled selected>
+                State
+              </option>
               <option value="AL">Alabama</option>
               <option value="AK">Alaska</option>
               <option value="AZ">Arizona</option>
@@ -183,9 +180,9 @@ const SignUp = () => {
               <option value="WY">Wyoming</option>
             </select>
           </div>
-          <div className="mb-6">
+          <div className="mb-6 border-b border-pretendWhite">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-buttonPink text-sm font-bold mb-2"
               for="password"
             >
               Zip Code
@@ -201,16 +198,16 @@ const SignUp = () => {
             />
           </div>
         </div>
-        <div className="flex">
-          <div className="mb-6">
+        <div className="flex justify-between">
+          <div className="mb-6 border-b border-pretendWhite">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-buttonPink text-sm font-bold mb-2"
               for="password"
             >
               Age
             </label>
             <input
-              className="bg-divPurple border-none placeholder-textPurple"
+              className="w-12 bg-divPurple border-none placeholder-textPurple"
               id="ageGroup"
               type="text"
               placeholder="30"
@@ -219,18 +216,21 @@ const SignUp = () => {
               value={signUpForm.ageGroup ? signUpForm.ageGroup : ""}
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-6 border-b border-pretendWhite">
             <label
-              className="block text-gray-700 text-sm font-bold mb-2"
+              className="block text-buttonPink text-sm font-bold mb-2"
               for="password"
             >
               Ethnicity
             </label>
             <select
-              className="bg-divPurple border-none text-textPurple"
+              className="w-64 bg-divPurple border-none text-textPurple"
               onChange={(e) => setFormState(e)}
               value={signUpForm.state ? signUpForm.state : ""}
             >
+              <option value="" disabled selected>
+                Ethnicity
+              </option>
               <option value="NativeAmerican">
                 American Indian or Alaska Native
               </option>
@@ -247,7 +247,7 @@ const SignUp = () => {
         </div>
         <div className="mb-6">
           <label
-            className="block text-gray-700 text-sm font-bold mb-2"
+            className="block text-buttonPink text-sm font-bold mb-2"
             for="password"
           >
             Veteran Status
@@ -269,17 +269,17 @@ const SignUp = () => {
             veteran
           </label>
         </div>
-        <div className="flex-col items-center justify-between">
+        <div className="flex flex-col items-center">
           <button
             className="content-center h-12 px-6 bg-buttonPink text-pretendWhite rounded-full"
             type="button"
-            onClick={submitForm}
+            onClick={authenticateForm}
           >
             Add To Database
           </button>
         </div>
       </form>
-      <p className="text-center text-gray-500 text-xs">
+      <p className="text-center text-labelGrey text-xs">
         &copy;2020 Acme Corp. All rights reserved.
       </p>
     </div>
