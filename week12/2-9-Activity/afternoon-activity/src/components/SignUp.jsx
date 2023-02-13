@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ReactDOM from "react-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const SignUp = () => {
   const [signUpForm, setSignUpForm] = useState({});
@@ -13,6 +15,22 @@ const SignUp = () => {
   };
 
   const authenticateForm = () => {
+    if (
+      !signUpForm.username ||
+      !signUpForm.firstName ||
+      !signUpForm.lastName ||
+      !signUpForm.address ||
+      !signUpForm.city ||
+      !signUpForm.state ||
+      !signUpForm.zip ||
+      !signUpForm.ageGroup ||
+      !signUpForm.ethnicity ||
+      !signUpForm.veteran
+    ) {
+      window.alert("Please complete all fields and try again.");
+      // toast("Please complete all fields and try again.");
+    }
+
     // if any information is missing "Please fill out all fields."
     // if firstName, lastName, city have numbers, "Invalid character, please try again."
   };
@@ -22,12 +40,9 @@ const SignUp = () => {
         ADD STUDENT
       </div>
       <form className="appearance-none">
-        <div className="mb-4 border-b border-pretendWhite">
-          <label
-            className="block text-buttonPink text-sm font-bold mb-2"
-            for="username"
-          >
-            Username<i class="fa-solid fa-user"></i>
+        <div className="flex mb-4 border-b border-pretendWhite">
+          <label>
+            <FontAwesomeIcon icon="fa-regular fa-user" />
           </label>
           <input
             className="bg-divPurple border-none placeholder-textPurple"
@@ -121,6 +136,7 @@ const SignUp = () => {
             <select
               className="w-25 bg-divPurple border-none text-textPurple"
               placeholder="State"
+              name="state"
               onChange={(e) => setFormState(e)}
               value={signUpForm.state ? signUpForm.state : ""}
             >
@@ -225,8 +241,9 @@ const SignUp = () => {
             </label>
             <select
               className="w-64 bg-divPurple border-none text-textPurple"
+              name="ethnicity"
               onChange={(e) => setFormState(e)}
-              value={signUpForm.state ? signUpForm.state : ""}
+              value={signUpForm.ethnicity ? signUpForm.ethnicity : ""}
             >
               <option value="" disabled selected>
                 Ethnicity
