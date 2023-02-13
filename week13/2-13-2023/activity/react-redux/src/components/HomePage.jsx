@@ -2,7 +2,6 @@ import React from "react";
 import "../App.css";
 import { useSelector, useDispatch } from "react-redux";
 import { decrement, increment, reset } from "../reducers/counterSlice";
-import Movies from "./Movies";
 
 const HomePage = () => {
   const counter = useSelector((state) => state.counter.value);
