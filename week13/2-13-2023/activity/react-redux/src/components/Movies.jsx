@@ -2,6 +2,8 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchMovies } from "../reducers/movieSlice";
+import { Link } from "react-router-dom";
+import AboutMovie from "./AboutMovie";
 
 const Movies = () => {
   const APIkey = import.meta.env.VITE_KEY;
@@ -24,7 +26,9 @@ const Movies = () => {
           <>
             <p> {movie?.Title} </p>
             <p> {movie?.Year} </p>
-            <img src={movie?.Poster} />
+            <Link to="/aboutmovie" element={<AboutMovie />}>
+              <img src={movie?.Poster} />
+            </Link>
           </>
         );
       })}
@@ -37,8 +41,6 @@ export default Movies;
 // As a user, I should be able to click on one of the movie cards and be given a different page that shows me more detail about the movie I clicked on
 
 // As a user, I should be able to see designs that mimic the above two pages as much as possible.  At a minimum, I want the search bar, card layout, card style, and individual movie components to be styled as the above.
-
-// As a user, I should be using react router dom to show my different pages
 
 // As a user, I should have an ever present beautifully styled tailwind-ish navbar that is shown on all my components at the top
 
