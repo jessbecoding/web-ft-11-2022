@@ -11,7 +11,7 @@ const Movies = () => {
   const [movieToSearch, setMovieToSearch] = useState("");
   const movies = useSelector((state) => state.movies);
   const getMovies = async () => {
-    const movieURL = `http://www.omdbapi.com/?apikey=${APIkey}&s=${movieToSearch}`;
+    const movieURL = `http://www.omdbapi.com/?apikey=${APIkey}&type=movie&s=${movieToSearch}`;
     const movieData = await fetch(movieURL);
     const json = await movieData.json();
     dispatch(searchMovies(json.Search));
