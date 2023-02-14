@@ -21,17 +21,15 @@ const Movies = () => {
       <h1>Movies</h1>
       <input type="text" onChange={(e) => setMovieToSearch(e.target.value)} />
       <button onClick={() => getMovies()}>Search Movies</button>
-      {movies?.map((movie) => {
-        return (
-          <>
-            <p> {movie?.Title} </p>
-            <p> {movie?.Year} </p>
-            <Link to="/aboutmovie" element={<AboutMovie />}>
-              <img src={movie?.Poster} />
-            </Link>
-          </>
-        );
-      })}
+      {movies?.map((movie) => (
+        <>
+          <p> {movie?.Title} </p>
+          <p> {movie?.Year} </p>
+          <Link to="/aboutmovie" element={<AboutMovie />}>
+            <img src={movie?.Poster} />
+          </Link>
+        </>
+      ))}
     </div>
   );
 };

@@ -9,9 +9,12 @@ export const movieSlice = createSlice({
     searchMovies: (state, action) => {
       return action.payload;
     },
+    displayDetails: (state, action) => {
+      return action.payload;
+    },
   },
 });
 
-export const { searchMovies } = movieSlice.actions;
+export const { searchMovies, displayDetails } = movieSlice.actions;
 
 export default movieSlice.reducer;
