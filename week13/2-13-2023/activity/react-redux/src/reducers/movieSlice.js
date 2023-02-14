@@ -6,14 +6,12 @@ export const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {
-    addMovie: (state, action) => {
-      const addedNewMovie = state;
-      addedNewMovie.push(action.payload);
-      state = addedNewMovie;
+    searchMovies: (state, action) => {
+      return action.payload;
     },
   },
 });
 
-export const { addMovie } = movieSlice.actions;
+export const { searchMovies } = movieSlice.actions;
 
 export default movieSlice.reducer;

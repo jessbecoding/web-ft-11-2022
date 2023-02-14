@@ -3,36 +3,36 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { searchMovies } from "../reducers/movieSlice";
 
-const getMovies = async() => {
-  searchInput = req.body.value;
-  const movieURL = `http://www.omdbapi.com/?apikey=[KEYHERE]&type=movie&s=${searchInput}`;
-  const fetchMovies = async () => {
-    const movieData = await fetch(url);
-    const json = await movieData.json();
-}}
-
-
 const Movies = () => {
+  const APIkey = import.meta.env.VITE_KEY;
   const dispatch = useDispatch();
-  const [movietoAdd, setMovieToAdd] = useState("");
+  const [movieToSearch, setMovieToSearch] = useState("");
   const movies = useSelector((state) => state.movies);
+  const getMovies = async () => {
+    const movieURL = `http://www.omdbapi.com/?apikey=${APIkey}&s=${movieToSearch}`;
+    const movieData = await fetch(movieURL);
+    const json = await movieData.json();
+    dispatch(searchMovies(json.Search));
+  };
   return (
     <div>
       <h1>Movies</h1>
-      <input type="text" onChange={(e) => setMovieToAdd(e.target.value)} />
-      <button onClick={() => }>Search Movies</button>
-      {movies.length !== 0 ? (
-        movies.map((movie) => <p>{movie.Title}</p>)
-      ) : (
-        <p>Search a title or keyword above to get started!</p>
-      )}
+      <input type="text" onChange={(e) => setMovieToSearch(e.target.value)} />
+      <button onClick={() => getMovies()}>Search Movies</button>
+      {movies?.map((movie) => {
+        return (
+          <>
+            <p> {movie?.Title} </p>
+            <p> {movie?.Year} </p>
+            <img src={movie?.Poster} />
+          </>
+        );
+      })}
     </div>
   );
 };
 
 export default Movies;
-
-// As a user, I should be able to type in a movie, and a list of movies based on keyword should appear underneath my search bar
 
 // As a user, I should be able to click on one of the movie cards and be given a different page that shows me more detail about the movie I clicked on
 
