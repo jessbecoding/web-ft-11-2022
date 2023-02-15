@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { displayDetails } from "../reducers/movieSlice";
 
 const AboutMovie = (movie) => {
+  console.log(movie);
   const APIkey = import.meta.env.VITE_KEY;
   const dispatch = useDispatch();
   const displayMovie = async () => {
