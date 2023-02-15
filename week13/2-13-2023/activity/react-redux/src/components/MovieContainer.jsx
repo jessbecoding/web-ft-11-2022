@@ -21,34 +21,34 @@ const MovieContainer = () => {
   };
   console.log(movieDetails);
   return (
-    <div className="my-10">
-      <div>
-        <input
-          className="bg-searchBarGrey text-shadowFontGrey"
-          type="text"
-          placeholder="Search by title"
-          onChange={(e) => setMovieToSearch(e.target.value)}
-        />
-
-        <button onClick={() => getMovies()}>Search Movies</button>
-      </div>
-      {movies?.map((movie) => (
+    <div className="">
+      <div className="flex border-2">
+        <div className="">
+          <input
+            className="w-3/4 bg-searchBarGrey text-shadowFontGrey"
+            type="text"
+            placeholder="Search by title"
+            onChange={(e) => setMovieToSearch(e.target.value)}
+          />
+        </div>
         <div>
-          <div>
-            <p> {movie?.Title} </p>
-          </div>
-
-          <div>
-            <p> {movie?.Year} </p>
-          </div>
-
-          <div>
+          <button className="" onClick={() => getMovies()}>
+            Search Movies
+          </button>
+        </div>
+      </div>
+      <div className="bg-shadowFontGrey flex flex-wrap">
+        {movies?.map((movie) => (
+          <div className="">
             <Link to="/aboutmovie" state={movie}>
-              <img src={movie?.Poster} />
+              <img
+                className="rounded object-scale-down h-96 w-48"
+                src={movie?.Poster}
+              />
             </Link>
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };

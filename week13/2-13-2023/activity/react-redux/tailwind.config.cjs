@@ -9,6 +9,7 @@ module.exports = {
       backGroundGrey: "#222636",
       black: "#000",
       white: "#fff",
+      red: "#dc2626",
     },
     extend: {},
   },

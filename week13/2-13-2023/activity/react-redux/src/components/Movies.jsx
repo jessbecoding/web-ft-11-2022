@@ -22,10 +22,7 @@ const Movies = () => {
   };
   console.log(movieDetails);
   return (
-    <div className="my-10">
-      <div>
-        <NavBar />
-      </div>
+    <div className="flex flex-column">
       <div>
         <MovieContainer />
       </div>
