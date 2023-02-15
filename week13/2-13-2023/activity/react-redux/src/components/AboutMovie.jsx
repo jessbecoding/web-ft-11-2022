@@ -1,16 +1,15 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { displayDetails } from "../reducers/movieSlice";
+import { useLocation } from "react-router-dom";
 
-const AboutMovie = (movie) => {
-  console.log(movie);
+const AboutMovie = () => {
+  const location = useLocation();
+  const movie = location.state;
+  console.log(location);
   const APIkey = import.meta.env.VITE_KEY;
-  const dispatch = useDispatch();
   const displayMovie = async () => {
     const movieURL = `http://www.omdbapi.com/?apikey=${APIkey}&type=movie&i=${imdbID}`;
     const movieData = await fetch(movieURL);
     const movie = await movieData.json();
-    dispatch(displayDetails(movie));
   };
   return (
     <div>
