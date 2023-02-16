@@ -10,3 +10,7 @@ export const PetSlice = createSlice({
     removeFav: (state) => {},
   },
 });
+
+export const { addFav, removeFav } = PetSlice.actions;
+
+export default PetSlice.reducer;

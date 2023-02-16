@@ -10,3 +10,7 @@ export const ShelterSlice = createSlice({
     removeFav: (state) => {},
   },
 });
+
+export const { addFav, removeFav } = ShelterSlice.actions;
+
+export default ShelterSlice.reducer;
