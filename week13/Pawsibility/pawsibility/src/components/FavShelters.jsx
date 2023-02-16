@@ -1,7 +1,11 @@
 import React from "react";
 
 const FavShelters = () => {
-  return <div>FavShelters</div>;
+  return (
+    <div>
+      <h1>FavShelters</h1>
+    </div>
+  );
 };
 
 export default FavShelters;
