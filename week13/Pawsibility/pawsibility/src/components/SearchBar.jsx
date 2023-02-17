@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchPets } from "../reducers/PetSlice";
 
-const Search = () => {
+const SearchBar = () => {
   // API INFO ONLY CHANGE TOKEN
   const APIkey = import.meta.env.VITE_API_KEY;
   const bearerToken = import.meta.env.VITE_BEARER_TOKEN;
@@ -20,21 +20,40 @@ const Search = () => {
 
   const dispatch = useDispatch();
   const [zip, setZip] = useState("");
-
+  const pets = useSelector((state) => state.pets);
   const searchPetsByZip = async () => {
     const petZipURL = `https://api.petfinder.com/v2/animals/?location=${zip}`;
     const petData = await fetch(petZipURL, requestOptions);
     const json = await petData.json();
-    dispatch(searchPets(json));
     const jsonHome = json.animals;
-    console.log(jsonHome);
+    dispatch(searchPets(jsonHome));
   };
   return (
     <div>
-      <input onChange={(e) => setZip(e.target.value)} type="text" />
-      <button onClick={() => searchPetsByZip()}>Search</button>
+      <div>
+        <input onChange={(e) => setZip(e.target.value)} type="text" />
+        <button onClick={() => searchPetsByZip()}>Search</button>
+      </div>
+      <div>
+        {pets?.map((pet) => (
+          <div className="petCardContainer">
+            <div>
+              <img src={pet.primary_photo_cropped.small} alt="" />
+            </div>
+            <div>
+              <h1>{pet.name}</h1>
+            </div>
+            <div>
+              <ul>
+                <li>{pet.age}</li>
+                <li>{pet.breeds.primary}</li>
+              </ul>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
 
-export default Search;
+export default SearchBar;
