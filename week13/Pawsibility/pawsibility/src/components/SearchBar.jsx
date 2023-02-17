@@ -1,9 +1,10 @@
 import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { searchPets } from "../reducers/PetSlice";
 
-const SearchBar = () => {
+const Search = () => {
   // API INFO ONLY CHANGE TOKEN
   const APIkey = import.meta.env.VITE_API_KEY;
   const bearerToken = import.meta.env.VITE_BEARER_TOKEN;
@@ -37,18 +38,20 @@ const SearchBar = () => {
       <div>
         {pets?.map((pet) => (
           <div className="petCardContainer">
-            <div>
-              <img src={pet.primary_photo_cropped.small} alt="" />
-            </div>
-            <div>
-              <h1>{pet.name}</h1>
-            </div>
-            <div>
-              <ul>
-                <li>{pet.age}</li>
-                <li>{pet.breeds.primary}</li>
-              </ul>
-            </div>
+            <Link to="/about">
+              <div>
+                <img src={pet.primary_photo_cropped.small} alt="" />
+              </div>
+              <div>
+                <h1 className="petName">{pet.name}</h1>
+              </div>
+              <div>
+                <ul>
+                  <li className="petAge">{pet.age}</li>
+                  <li className="petBreed">{pet.breeds.primary}</li>
+                </ul>
+              </div>
+            </Link>
           </div>
         ))}
       </div>
@@ -56,4 +59,4 @@ const SearchBar = () => {
   );
 };
 
-export default SearchBar;
+export default Search;
