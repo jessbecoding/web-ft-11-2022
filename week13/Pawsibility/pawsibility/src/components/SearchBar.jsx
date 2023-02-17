@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { searchPets } from "../reducers/PetSlice";
+import "../style/search.css";
 
 const Search = () => {
   // API INFO ONLY CHANGE TOKEN
@@ -32,23 +33,34 @@ const Search = () => {
   return (
     <div>
       <div>
-        <input onChange={(e) => setZip(e.target.value)} type="text" />
-        <button onClick={() => searchPetsByZip()}>Search</button>
+        <input
+          placeholder="Enter your zip here..."
+          className="zipInput"
+          onChange={(e) => setZip(e.target.value)}
+          type="text"
+        />
+        <button className="searchButton" onClick={() => searchPetsByZip()}>
+          Search
+        </button>
       </div>
-      <div>
+      <div className="petCardContainer">
         {pets?.map((pet) => (
-          <div className="petCardContainer">
+          <div className="petCard">
             <Link to="/about">
               <div>
-                <img src={pet.primary_photo_cropped.small} alt="" />
+                <img
+                  className="petPhoto"
+                  src={pet?.primary_photo_cropped?.small}
+                  alt=""
+                />
               </div>
               <div>
-                <h1 className="petName">{pet.name}</h1>
+                <h1 className="petName">{pet?.name}</h1>
               </div>
               <div>
                 <ul>
-                  <li className="petAge">{pet.age}</li>
-                  <li className="petBreed">{pet.breeds.primary}</li>
+                  <li className="petAge">{pet?.age}</li>
+                  <li className="petBreed">{pet?.breeds?.primary}</li>
                 </ul>
               </div>
             </Link>

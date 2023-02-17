@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../hamburger.css";
+import "../style/hamburger.css";
 
 const Burger = () => {
   const [burger_class, setBurgerClass] = useState("burger-bar unclicked");

@@ -1,0 +1,38 @@
+.zipInput {
+  width: 80%;
+  height: 3rem;
+  appearance: none;
+  border: bottom;
+  background-color: var(--parchment);
+  color: black;
+}
+
+.searchButton {
+  width: 20%;
+  height: 3rem;
+  appearance: none;
+  background-color: var(--cavernPink);
+  color: var(--thunder);
+}
+
+.searchButton:hover {
+  background-color: var(--thunder);
+  color: var(--cavernPink);
+}
+
+.petCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.petCard {
+  background-color: blueviolet;
+  margin: 5px;
+  height: 20rem;
+  width: 15rem;
+}
+
+.petPhoto {
+  width: 15rem;
+}
