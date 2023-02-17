@@ -8,7 +8,9 @@ export const PetSlice = createSlice({
   reducers: {
     addFav: (state) => {},
     removeFav: (state) => {},
-    searchPets: (state) => {},
+    searchPets: (state, action) => {
+      return action.payload;
+    },
   },
 });
 
