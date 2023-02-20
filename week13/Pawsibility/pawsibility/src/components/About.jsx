@@ -6,7 +6,6 @@ import "../style/about.css";
 const About = () => {
   const location = useLocation();
   const pet = location.state;
-  console.log(pet);
   return (
     <div className="mainContainer">
       <div className="firstSection">
@@ -44,10 +43,10 @@ const About = () => {
         </div>
         <div className="fifthSection">
           <h2>Meet {pet?.name}</h2>
-          <p>{pet.description}</p>
+          <p>{pet?.description}</p>
         </div>
         <div>
-          <button className="favButton" onClick={() => addFav()}>
+          <button className="favButton" onClick={() => addFav(pet)}>
             Add to Favorites
           </button>
         </div>
