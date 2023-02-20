@@ -5,6 +5,11 @@
   color: black;
 }
 
+.zipDiv {
+  display: flex;
+  align-items: center;
+}
+
 .searchButton {
   width: 10%;
   height: 3rem;

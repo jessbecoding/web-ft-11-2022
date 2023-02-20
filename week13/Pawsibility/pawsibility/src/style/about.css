@@ -1,5 +1,5 @@
 .favButton {
-  width: 30%;
+  width: 35%;
   height: 3rem;
   border: none;
   background-color: var(--viola);
@@ -16,6 +16,18 @@
 .mainContainer {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.petName {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.buttonContainer {
+  display: flex;
   justify-content: center;
   align-items: center;
 }

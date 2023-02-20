@@ -1,11 +1,16 @@
 import React from "react";
-import { addFav } from "../reducers/PetSlice";
+import { addFav } from "../reducers/FavoritePets";
 import { useLocation } from "react-router-dom";
 import "../style/about.css";
+import { useDispatch } from "react-redux";
 
 const About = () => {
   const location = useLocation();
   const pet = location.state;
+  const dispatch = useDispatch();
+  const addFavFunct = (pet) => {
+    dispatch(addFav(pet));
+  };
   return (
     <div className="mainContainer">
       <div className="firstSection">
@@ -45,8 +50,8 @@ const About = () => {
           <h2>Meet {pet?.name}</h2>
           <p>{pet?.description}</p>
         </div>
-        <div>
-          <button className="favButton" onClick={() => addFav(pet)}>
+        <div className="buttonContainer">
+          <button className="favButton" onClick={() => addFavFunct(pet)}>
             Add to Favorites
           </button>
         </div>

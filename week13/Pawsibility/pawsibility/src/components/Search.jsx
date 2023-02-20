@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { searchPets } from "../reducers/PetSlice";
+import { searchPets } from "../reducers/SearchPetSlice";
 import "../style/search.css";
 
 const Search = () => {
@@ -32,7 +32,7 @@ const Search = () => {
   };
   return (
     <div>
-      <div>
+      <div className="zipDiv">
         <input
           placeholder="Enter your zip here..."
           className="zipInput"
