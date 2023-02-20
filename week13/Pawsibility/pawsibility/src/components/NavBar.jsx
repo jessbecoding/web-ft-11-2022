@@ -30,7 +30,7 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/favorites">
+              <Link to="/favoritePets">
                 <FontAwesomeIcon icon={faHeart} /> Favorite Pets
               </Link>
             </li>

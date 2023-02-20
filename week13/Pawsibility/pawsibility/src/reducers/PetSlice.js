@@ -6,7 +6,10 @@ export const PetSlice = createSlice({
   name: "pets",
   initialState,
   reducers: {
-    addFav: (state) => {},
+    addFav: (state) => {
+      initialState.push(state);
+      return initialState;
+    },
     removeFav: (state) => {},
     searchPets: (state, action) => {
       return action.payload;

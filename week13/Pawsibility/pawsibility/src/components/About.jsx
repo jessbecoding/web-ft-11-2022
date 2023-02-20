@@ -1,4 +1,5 @@
 import React from "react";
+import { addFav } from "../reducers/PetSlice";
 import { useLocation } from "react-router-dom";
 import "../style/about.css";
 
@@ -46,7 +47,9 @@ const About = () => {
           <p>{pet.description}</p>
         </div>
         <div>
-          <button className="favButton">Add to Favorites</button>
+          <button className="favButton" onClick={() => addFav()}>
+            Add to Favorites
+          </button>
         </div>
       </div>
     </div>
