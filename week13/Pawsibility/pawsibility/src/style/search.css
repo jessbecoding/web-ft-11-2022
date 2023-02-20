@@ -1,18 +1,18 @@
 .zipInput {
-  width: 80%;
+  width: 90%;
   height: 3rem;
-  appearance: none;
-  border: bottom;
   background-color: var(--parchment);
   color: black;
 }
 
 .searchButton {
-  width: 20%;
+  width: 10%;
   height: 3rem;
   appearance: none;
   background-color: var(--cavernPink);
   color: var(--thunder);
+  font-family: "Gloock", serif;
+  font-size: x-large;
 }
 
 .searchButton:hover {

@@ -2,7 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import "../src/style/App.css";
 import Homepage from "./components/Homepage";
 import NavBar from "./components/NavBar";
-import Search from "./components/SearchBar";
+import Search from "./components/Search";
 import FavPets from "./components/FavPets";
 import FavShelters from "./components/FavShelters";
 import About from "./components/About";

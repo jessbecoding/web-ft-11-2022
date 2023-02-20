@@ -7,6 +7,11 @@
   --cavernPink: #e4bcc4;
   --strikemaster: #a46c84;
   --falcon: #7c5464;
+  font-family: "Belleza", sans-serif;
+}
+
+:root h1 {
+  font-family: "Gloock", serif;
 }
 
 * {
