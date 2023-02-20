@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import "../style/about.css";
 
 const About = () => {
   const location = useLocation();
@@ -7,11 +8,12 @@ const About = () => {
   console.log(pet);
   return (
     <div className="mainContainer">
-      <div className="headerPhoto">
-        <img src={pet?.primary_photo_cropped?.full} alt="" />
-      </div>
-      <div className="detailsContainer">
-        <div className="firstSection">
+      <div className="firstSection">
+        <div className="headerPhoto">
+          <img src={pet?.primary_photo_cropped?.full} alt="" />
+        </div>
+        <div className="detailsContainer"></div>
+        <div className="secondSection">
           <div className="petName">
             <h1>{pet?.name}</h1>
           </div>
@@ -24,7 +26,7 @@ const About = () => {
             </ul>
           </div>
         </div>
-        <div className="secondSection">
+        <div className="thirdSection">
           <ul>
             <li>{pet?.age}</li>
             <li>{pet?.gender}</li>
@@ -32,16 +34,19 @@ const About = () => {
             <li>{pet?.colors?.primary}</li>
           </ul>
         </div>
-        <div className="thirdSection">
+        <div className="fourthSection">
           <h2>About</h2>
           <h3>Coat Length</h3>
           <p>{pet?.coat}</p>
           <h3>Health</h3>
           {/* something here about shots/spay/neuter */}
         </div>
-        <div className="fourthSection">
+        <div className="fifthSection">
           <h2>Meet {pet?.name}</h2>
           <p>{pet.description}</p>
+        </div>
+        <div>
+          <button className="favButton">Add to Favorites</button>
         </div>
       </div>
     </div>

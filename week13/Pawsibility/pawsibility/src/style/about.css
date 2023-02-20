@@ -1,0 +1,21 @@
+.favButton {
+  width: 30%;
+  height: 3rem;
+  border: none;
+  background-color: var(--viola);
+  color: var(--falcon);
+  font-family: "Gloock", serif;
+  font-size: x-large;
+}
+
+.favButton:hover {
+  background-color: var(--thunder);
+  color: var(--cavernPink);
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
