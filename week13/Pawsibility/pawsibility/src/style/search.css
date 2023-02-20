@@ -1,0 +1,41 @@
+.zipInput {
+  width: 80%;
+  height: 3rem;
+  appearance: none;
+  border: bottom;
+  background-color: var(--parchment);
+  color: black;
+}
+
+.searchButton {
+  width: 20%;
+  height: 3rem;
+  appearance: none;
+  background-color: var(--cavernPink);
+  color: var(--thunder);
+}
+
+.searchButton:hover {
+  background-color: var(--thunder);
+  color: var(--cavernPink);
+}
+
+.petCardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  object-fit: contain;
+}
+
+.petCard {
+  border-radius: 25px;
+  background-color: blueviolet;
+  margin: 5px;
+  height: 20rem;
+  width: 15rem;
+}
+
+.petPhoto {
+  border-radius: 25px 25px 0px 0px;
+  width: 15rem;
+}

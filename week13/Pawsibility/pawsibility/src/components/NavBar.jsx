@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../navbar.css";
+import "../../src/style/navbar.css";
 import { Link } from "react-router-dom";
 import transparentLogo from "../assets/logos/PawsibilityLogoTransparent.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
