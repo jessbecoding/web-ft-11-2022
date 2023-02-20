@@ -22,16 +22,17 @@ const Search = () => {
 
   const dispatch = useDispatch();
   const [zip, setZip] = useState("");
+  const [type, setType] = useState("");
   const pets = useSelector((state) => state.pets);
   const searchPetsByZip = async () => {
-    const petZipURL = `https://api.petfinder.com/v2/animals/?location=${zip}`;
+    const petZipURL = `https://api.petfinder.com/v2/animals/?type=${type}?location=${zip}`;
     const petData = await fetch(petZipURL, requestOptions);
     const json = await petData.json();
     const jsonHome = json.animals;
     dispatch(searchPets(jsonHome));
   };
   return (
-    <div>
+    <div className="searchItems">
       <div className="zipDiv">
         <input
           placeholder="Enter your zip here..."
@@ -42,6 +43,30 @@ const Search = () => {
         <button className="searchButton" onClick={() => searchPetsByZip()}>
           Search
         </button>
+        <div>
+          <div>
+            <label>Pet Type</label>
+          </div>
+          <div>
+            <select
+              placeholder="Pet Type"
+              name="type"
+              onChange={(e) => setType(e)}
+              value={type.state ? type.state : ""}
+            >
+              <option value="" disabled selected>
+                Pet Type
+              </option>
+              <option value="">Cat</option>
+              <option value="AK">Dog</option>
+              <option value="AZ">Rabbit</option>
+              <option value="AR">Horse</option>
+              <option value="CA">Bird</option>
+              <option value="CA">Barnyard</option>
+              <option value="CO">Scales, Fins & Other</option>
+            </select>
+          </div>
+        </div>
       </div>
       <div className="petCardContainer">
         {pets?.map((pet) => (
