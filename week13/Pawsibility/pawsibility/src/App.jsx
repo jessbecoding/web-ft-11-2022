@@ -19,7 +19,6 @@ function App() {
           <Route path="/search" element={<Search />} />
           <Route path="/about/:pet/:petId" element={<About />} />
           <Route path="/favoritePets" element={<FavPets />} />
-          <Route path="/favoriteShelters" element={<FavShelters />} />
         </Routes>
       </div>
     </div>

@@ -35,11 +35,6 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link to="/favorites">
-                <FontAwesomeIcon icon={faHouse} /> Favorite Shelters
-              </Link>
-            </li>
-            <li>
               <Link to="#">
                 <FontAwesomeIcon icon={faMedium} /> Medium
               </Link>
