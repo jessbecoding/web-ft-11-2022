@@ -12,8 +12,11 @@ export const FavoritePets = createSlice({
     },
     removeFav: (state, action) => {
       console.log("Removed Favorite");
-      console.log(action);
-      return initialState.filter((pet) => pet !== action.payload);
+      console.log("This is the action:", action);
+      const newFavs = [
+        ...initialState.filter((pet) => pet.id !== action.payload.id),
+      ];
+      return [...newFavs];
     },
   },
 });
