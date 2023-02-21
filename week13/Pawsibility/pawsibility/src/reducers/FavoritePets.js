@@ -12,8 +12,8 @@ export const FavoritePets = createSlice({
     },
     removeFav: (state, action) => {
       console.log("Removed Favorite");
-      console.log(state);
-      return [...state.filter((pet) => pet !== action.payload)];
+      console.log(action);
+      return initialState.filter((pet) => pet !== action.payload);
     },
   },
 });
