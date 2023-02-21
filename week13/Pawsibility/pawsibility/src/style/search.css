@@ -1,5 +1,5 @@
 .zipInput {
-  width: 90%;
+  width: 50%;
   height: 3rem;
   background-color: var(--parchment);
   color: black;
@@ -8,6 +8,10 @@
 .zipDiv {
   display: flex;
   align-items: center;
+}
+
+.filterDiv {
+  display: flex;
 }
 
 .searchButton {

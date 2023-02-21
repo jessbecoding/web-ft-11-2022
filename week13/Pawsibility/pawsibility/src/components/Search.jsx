@@ -24,6 +24,7 @@ const Search = () => {
   const dispatch = useDispatch();
   const [zip, setZip] = useState("");
   const [type, setType] = useState("");
+  const [distance, setDistance] = useState("100");
   const pets = useSelector((state) => state.pets);
   const typeInput = [
     {
@@ -55,12 +56,19 @@ const Search = () => {
       label: "Scales, Fins & Other",
     },
     {
-      value: "Pet Type",
+      value: "",
       label: "Pet Type",
     },
   ];
+  const distanceInput = [
+    { value: "10", label: "10 miles" },
+    { value: "25", label: "25 miles" },
+    { value: "50", label: "50 miles" },
+    { value: "100", label: "100 miles" },
+    { value: "500", label: "Anywhere" },
+  ];
   const searchPetsByZip = async () => {
-    const petZipURL = `https://api.petfinder.com/v2/animals/?type=${type.value}&location=${zip}`;
+    const petZipURL = `https://api.petfinder.com/v2/animals/?type=${type}&location=${zip}&distance=${distance}`;
     const petData = await fetch(petZipURL, requestOptions);
     const json = await petData.json();
     const jsonHome = json.animals;
@@ -76,20 +84,31 @@ const Search = () => {
           onChange={(e) => setZip(e.target.value)}
           type="text"
         />
-        <button className="searchButton" onClick={() => searchPetsByZip()}>
-          Search
-        </button>
-        <div>
+        <div className="filterDiv">
           <div>
             <Select
+              className="dropdown"
               value={typeInput.value}
               options={typeInput}
               defaultValue={typeInput[7]}
               name="typeInput"
-              onChange={(e) => setType(e)}
+              onChange={(e) => setType(e.value)}
+            />
+          </div>
+          <div>
+            <Select
+              className="dropdown"
+              value={distanceInput.value}
+              options={distanceInput}
+              defaultValue={distanceInput[3]}
+              name="distanceInput"
+              onChange={(e) => setDistance(e.value)}
             />
           </div>
         </div>
+        <button className="searchButton" onClick={() => searchPetsByZip()}>
+          Search
+        </button>
       </div>
       <div className="petCardContainer">
         {pets?.map((pet) => (

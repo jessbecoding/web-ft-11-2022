@@ -4,7 +4,7 @@ import { removeFav } from "../reducers/FavoritePets";
 
 const FavPets = () => {
   const favPets = useSelector((state) => state.favPets);
-  const dispatch = useDispatch;
+  const dispatch = useDispatch();
   const delFav = (pet) => {
     dispatch(removeFav(pet));
   };

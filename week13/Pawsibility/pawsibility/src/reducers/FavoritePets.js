@@ -7,11 +7,13 @@ export const FavoritePets = createSlice({
   initialState,
   reducers: {
     addFav: (state, action) => {
+      console.log("Added favorite!");
       return [...state, action.payload];
     },
     removeFav: (state, action) => {
-      console.log("made it");
-      return [...state.splice(0, action.payload)];
+      console.log("Removed Favorite");
+      console.log(state);
+      return [...state.filter((pet) => pet !== action.payload)];
     },
   },
 });
