@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import Select from "react-select";
 import { searchPets } from "../reducers/SearchPetSlice";
 import "../style/search.css";
 
@@ -24,11 +25,46 @@ const Search = () => {
   const [zip, setZip] = useState("");
   const [type, setType] = useState("");
   const pets = useSelector((state) => state.pets);
+  const typeInput = [
+    {
+      value: "Cat",
+      label: "Cat",
+    },
+    {
+      value: "Dog",
+      label: "Dog",
+    },
+    {
+      value: "Rabbit",
+      label: "Rabbit",
+    },
+    {
+      value: "Horse",
+      label: "Horse",
+    },
+    {
+      value: "Bird",
+      label: "Bird",
+    },
+    {
+      value: "Barnyard",
+      label: "Barnyard",
+    },
+    {
+      value: "Scales, Fins & Other",
+      label: "Scales, Fins & Other",
+    },
+    {
+      value: "Pet Type",
+      label: "Pet Type",
+    },
+  ];
   const searchPetsByZip = async () => {
-    const petZipURL = `https://api.petfinder.com/v2/animals/?type=${type}?location=${zip}`;
+    const petZipURL = `https://api.petfinder.com/v2/animals/?type=${type.value}&location=${zip}`;
     const petData = await fetch(petZipURL, requestOptions);
     const json = await petData.json();
     const jsonHome = json.animals;
+    console.log(petZipURL);
     dispatch(searchPets(jsonHome));
   };
   return (
@@ -45,26 +81,13 @@ const Search = () => {
         </button>
         <div>
           <div>
-            <label>Pet Type</label>
-          </div>
-          <div>
-            <select
-              placeholder="Pet Type"
-              name="type"
+            <Select
+              value={typeInput.value}
+              options={typeInput}
+              defaultValue={typeInput[7]}
+              name="typeInput"
               onChange={(e) => setType(e)}
-              value={type.state ? type.state : ""}
-            >
-              <option value="" disabled selected>
-                Pet Type
-              </option>
-              <option value="">Cat</option>
-              <option value="AK">Dog</option>
-              <option value="AZ">Rabbit</option>
-              <option value="AR">Horse</option>
-              <option value="CA">Bird</option>
-              <option value="CA">Barnyard</option>
-              <option value="CO">Scales, Fins & Other</option>
-            </select>
+            />
           </div>
         </div>
       </div>
