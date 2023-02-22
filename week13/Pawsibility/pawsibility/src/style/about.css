@@ -13,6 +13,16 @@
   color: var(--cavernPink);
 }
 
+.favButtonOff {
+  width: 35%;
+  height: 3rem;
+  border: none;
+  background-color: var(--scorpion);
+  color: var(--thunder);
+  font-family: "Gloock", serif;
+  font-size: x-large;
+}
+
 .mainContainer {
   display: flex;
   flex-direction: column;

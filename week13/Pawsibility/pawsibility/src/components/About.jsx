@@ -2,14 +2,31 @@ import React from "react";
 import { addFav } from "../reducers/FavoritePets";
 import { useLocation } from "react-router-dom";
 import "../style/about.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
 
 const About = () => {
+  const alreadyFavNotification = () =>
+    toast.warn("This pet has already been favorited!");
+
+  const addedFavNotification = () => {
+    toast.success("This pet has been added to favorites!");
+  };
   const location = useLocation();
   const pet = location.state;
+  const favPets = useSelector((state) => state.favPets);
   const dispatch = useDispatch();
+  const isPetInFav = favPets.findIndex((pets) => pets.id === pet.id);
   const addFavFunct = (pet) => {
-    dispatch(addFav(pet));
+    const isPetInFav = favPets.findIndex((pets) => pets.id === pet.id);
+    console.log("this is the list of favorites:", favPets);
+    console.log("this is the pet you're on:", pet);
+    if (isPetInFav !== -1) {
+      alreadyFavNotification();
+    } else {
+      dispatch(addFav(pet));
+      addedFavNotification();
+    }
   };
   return (
     <div className="mainContainer">
@@ -51,11 +68,16 @@ const About = () => {
           <p>{pet?.description}</p>
         </div>
         <div className="buttonContainer">
-          <button className="favButton" onClick={() => addFavFunct(pet)}>
-            Add to Favorites
+          <button
+            className={isPetInFav !== -1 ? "favButtonOff" : "favButton"}
+            onClick={() => addFavFunct(pet)}
+            disabled={isPetInFav !== -1}
+          >
+            {isPetInFav !== -1 ? "Pet is in Favorites" : "Add to Favorites"}
           </button>
         </div>
       </div>
+      <ToastContainer />
     </div>
   );
 };
