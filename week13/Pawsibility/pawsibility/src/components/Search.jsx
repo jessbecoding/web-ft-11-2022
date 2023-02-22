@@ -112,8 +112,8 @@ const Search = () => {
       </div>
       <div className="petCardContainer">
         {pets?.map((pet) => (
-          <div className="petCard">
-            <Link to={`/about/${pet.name}/${pet.id}`} state={pet}>
+          <Link to={`/about/${pet.name}/${pet.id}`} state={pet}>
+            <div className="petCard">
               <div>
                 <img
                   className="petPhoto"
@@ -130,8 +130,8 @@ const Search = () => {
                   <li className="petBreed">{pet?.breeds?.primary}</li>
                 </ul>
               </div>
-            </Link>
-          </div>
+            </div>
+          </Link>
         ))}
       </div>
     </div>
