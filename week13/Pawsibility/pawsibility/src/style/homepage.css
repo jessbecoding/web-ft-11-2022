@@ -1,3 +1,8 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 .bannerDiv {
   width: 100%;
   height: 20rem;
@@ -19,7 +24,7 @@
 .aboutText {
   width: 45%;
   height: auto;
-  background-color: aqua;
+  margin: 0px 10px 0px;
 }
 
 .slogan {
@@ -38,8 +43,12 @@
 
 .millieContainer {
   width: 45%;
-  height: auto;
+  height: 250px;
   background-color: var(--falcon);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
 }
 
 .millie {
@@ -51,7 +60,7 @@
   .banner {
     height: 5rem;
   }
-  .pawsibility {
+  .slogan {
     width: 80%;
     position: absolute;
     top: 60px;

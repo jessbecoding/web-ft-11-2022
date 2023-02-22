@@ -1,11 +1,12 @@
 import React from "react";
 import "../style/homepage.css";
 import banner from "../assets/friends.jpg";
-import millie from "../assets/millie.jpg";
+import ImageSlider from "../components/ImageSlider";
+import { SliderData } from "./SliderData";
 
 const Homepage = () => {
   return (
-    <div>
+    <div className="homeContainer">
       <div className="bannerContainer">
         <div className="bannerDiv">
           <img className="banner" src={banner} alt="" />
@@ -45,9 +46,7 @@ const Homepage = () => {
         </div>
 
         <div className="millieContainer">
-          <div>
-            <img className="millie" src={millie} alt="" />
-          </div>
+          <ImageSlider slides={SliderData} />
         </div>
       </div>
     </div>
