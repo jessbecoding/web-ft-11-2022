@@ -7,12 +7,17 @@ export const FavoritePets = createSlice({
   initialState,
   reducers: {
     addFav: (state, action) => {
-      console.log("Added favorite!");
-      return [...state, action.payload];
+      let index = state.findIndex((pet) => pet.id === action.payload.id);
+      if (index == -1) {
+        console.log("Added favorite!");
+        return [...state, action.payload];
+      } else {
+        console.log("This pet is in favorites already!");
+        return state;
+      }
     },
     removeFav: (state, action) => {
       console.log("Removed Favorite");
-      console.log("This is the action:", action);
       return state.filter((pet) => pet.id !== action.payload.id);
     },
   },
