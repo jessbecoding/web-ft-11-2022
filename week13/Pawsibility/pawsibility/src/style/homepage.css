@@ -1,0 +1,61 @@
+.bannerDiv {
+  width: 100%;
+  height: 20rem;
+}
+
+.banner {
+  object-fit: cover;
+  height: 20rem;
+  width: 100%;
+}
+
+.aboutContainer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  height: auto;
+}
+
+.aboutText {
+  width: 45%;
+  height: auto;
+  background-color: aqua;
+}
+
+.slogan {
+  height: 5rem;
+  width: 60%;
+  position: absolute;
+  bottom: -35px;
+  left: 100px;
+  font-size: xx-large;
+  color: var(black);
+}
+
+.bannerContainer {
+  position: relative;
+}
+
+.millieContainer {
+  width: 45%;
+  height: auto;
+  background-color: var(--falcon);
+}
+
+.millie {
+  height: 250px;
+  width: auto;
+}
+
+@media (max-width: 650px) {
+  .banner {
+    height: 5rem;
+  }
+  .pawsibility {
+    width: 80%;
+    position: absolute;
+    top: 60px;
+    left: 15px;
+    font-size: medium;
+  }
+}

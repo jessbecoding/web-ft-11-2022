@@ -85,7 +85,7 @@ const Search = () => {
     <div className="searchItems">
       <div className="zipDiv">
         <input
-          placeholder="Enter your US zip here..."
+          placeholder="Enter your zip here..."
           className="zipInput"
           onChange={(e) => setZip(e.target.value)}
           type="text"
@@ -124,7 +124,6 @@ const Search = () => {
                 <img
                   className="petPhoto"
                   src={pet?.primary_photo_cropped?.small}
-                  alt=""
                 />
               </div>
               <div>
