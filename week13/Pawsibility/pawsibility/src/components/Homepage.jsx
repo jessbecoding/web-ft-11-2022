@@ -2,6 +2,7 @@ import React from "react";
 import "../style/homepage.css";
 import banner from "../assets/friends.jpg";
 import ImageSlider from "../components/ImageSlider";
+import Footer from "../components/Footer";
 import { SliderData } from "./SliderData";
 
 const Homepage = () => {
@@ -49,6 +50,7 @@ const Homepage = () => {
           <ImageSlider slides={SliderData} />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

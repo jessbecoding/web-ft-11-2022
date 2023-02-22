@@ -1,0 +1,14 @@
+.main-footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding-top: 3em;
+  align-items: center;
+  background-color: var(--empress);
+  color: var(--thunder);
+}
+
+.row {
+  display: flex;
+  justify-content: space-evenly;
+}
