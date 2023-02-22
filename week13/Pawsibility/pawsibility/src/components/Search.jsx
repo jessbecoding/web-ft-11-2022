@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Select from "react-select";
 import { searchPets } from "../reducers/SearchPetSlice";
 import "../style/search.css";
+import { ToastContainer, toast } from "react-toastify";
 
 const Search = () => {
   // API INFO ONLY CHANGE TOKEN
@@ -68,18 +69,23 @@ const Search = () => {
     { value: "500", label: "Anywhere" },
   ];
   const searchPetsByZip = async () => {
-    const petZipURL = `https://api.petfinder.com/v2/animals/?type=${type}&location=${zip}&distance=${distance}`;
-    const petData = await fetch(petZipURL, requestOptions);
-    const json = await petData.json();
-    const jsonHome = json.animals;
-    console.log(petZipURL);
-    dispatch(searchPets(jsonHome));
+    const validZip = new RegExp("^[0-9]{5}([- /]?[0-9]{4})?$");
+    if (!validZip.test(zip)) {
+      toast.warn("Invalid zip code, please try again!");
+    } else {
+      const petZipURL = `https://api.petfinder.com/v2/animals/?type=${type}&location=${zip}&distance=${distance}`;
+      const petData = await fetch(petZipURL, requestOptions);
+      const json = await petData.json();
+      const jsonHome = json.animals;
+      console.log(petZipURL);
+      dispatch(searchPets(jsonHome));
+    }
   };
   return (
     <div className="searchItems">
       <div className="zipDiv">
         <input
-          placeholder="Enter your zip here..."
+          placeholder="Enter your US zip here..."
           className="zipInput"
           onChange={(e) => setZip(e.target.value)}
           type="text"
@@ -134,6 +140,7 @@ const Search = () => {
           </Link>
         ))}
       </div>
+      <ToastContainer />
     </div>
   );
 };
