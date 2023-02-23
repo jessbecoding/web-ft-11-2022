@@ -33,11 +33,9 @@ In order to run this app, you will need:
 <br>
 <li>Click send and you should see an access token appear in the terminal (Note: This token expires every hour)</li></ol>
 
-<h2>JavaScript</h2>
-
 <h2>CSS</h2>
 The app was built completely with custom CSS. I used <a href="https://www.canva.com/">Canva</a> to create a theme and logo. I used <a href="https://fonts.google.com/share?selection.family=Belleza|Gloock|Suranna">Google Fonts</a> for the text styles.
 <br>
-<img src=".\src\assets\readme\Palette.png"><br><img src=".\src\assets\readme\fonts.png">
+<img src=".\src\assets\readme\Palette.png"><img src=".\src\assets\readme\fonts.png">
 <br>
 <h2>Thank you!</h2>
