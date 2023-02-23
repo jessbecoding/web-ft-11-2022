@@ -7,7 +7,7 @@ import "../../src/style/favpets.css";
 
 const FavPets = () => {
   const dupNotification = () =>
-    toast.success("This pet is in favorites already!");
+    toast.success("Pet has been removed from favorites.");
 
   const favPets = useSelector((state) => state.favPets);
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ const FavPets = () => {
     dupNotification();
   };
   return (
-    <div>
+    <div className="mainContainer">
       <div className="petCardContainer">
         {favPets?.map((pet) => (
           <div className="petCard">

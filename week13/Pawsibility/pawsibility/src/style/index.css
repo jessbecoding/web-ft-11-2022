@@ -23,3 +23,10 @@ body {
   padding: 0%;
   background-color: var(--cavernPink);
 }
+
+.content-wrap {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  justify-content: space-between;
+}

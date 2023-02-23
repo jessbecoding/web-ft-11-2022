@@ -1,3 +1,9 @@
+:root {
+  --toastify-color-success: var(--thunder);
+  --toastify-icon-color-success: var(--cavernPink);
+  --toastify-font-family: "Suranna", serif;
+}
+
 .mainContainer {
   display: flex;
   justify-content: center;
@@ -61,6 +67,7 @@
   color: var(--thunder);
   font-family: "Gloock", serif;
   font-size: x-large;
+  margin-bottom: 5px;
 }
 
 .petName {
