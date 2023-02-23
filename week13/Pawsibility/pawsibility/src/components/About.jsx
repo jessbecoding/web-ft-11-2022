@@ -32,7 +32,11 @@ const About = () => {
     <div className="mainContainer">
       <div className="firstSection">
         <div className="headerPhoto">
-          <img src={pet?.primary_photo_cropped?.full} alt="" />
+          <img
+            className="image"
+            src={pet?.primary_photo_cropped?.full}
+            alt=""
+          />
         </div>
         <div className="detailsContainer"></div>
         <div className="secondSection">

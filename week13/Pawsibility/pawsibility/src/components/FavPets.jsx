@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFav } from "../reducers/FavoritePets";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "../../src/style/favpets.css";
 
 const FavPets = () => {
   const dupNotification = () =>
@@ -16,11 +17,10 @@ const FavPets = () => {
   };
   return (
     <div>
-      <h1>FavPets</h1>
       <div className="petCardContainer">
         {favPets?.map((pet) => (
           <div className="petCard">
-            <div>
+            <div className="photoDiv">
               <img
                 className="petPhoto"
                 src={pet?.primary_photo_cropped?.small}
