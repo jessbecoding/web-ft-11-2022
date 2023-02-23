@@ -1,8 +1,9 @@
 <h1>Pawsibility 2.0</h1>
+<img src=".\src\assets\logos\Pawsibility.png">
 <h2>About</h2>
 Pawsibility is a pet finder app that allows you to search adoptable pets by zipcode. You can also filter by animal type and distance, as well as add pets to a favorites list. I was inspired to do this because I recently went through this looking for my new puppy, Millie.
 
-To make the app, I used HTML, JavaScript, CSS, React, and Redux. I also utilized Postman and of course, the Petfinder API. I decided to revamp this project because I wanted to do so much more with it last time, and I loved the idea of being familiar with the API.
+To make the app, I used JavaScript, CSS, React, and Redux. I also utilized Postman and of course, the Petfinder API. I decided to revamp this project because I wanted to do so much more with it last time, and I loved the idea of being familiar with the API.
 
 <h2>Challenges</h2>
 With the API set up already, the biggest obstacle I faced was passing state. I found it pretty easy to get lost with the multiple states I was working with. File structure was also an issue. I had decided to make the hamburger component seperately and I think this is what prevented me from hiding the menu on click in mobile. Aside from state, styling is always by biggest challenge. I'm quite proud of what I was able to produce here in vanilla CSS, and I'm glad I decided to stretch myself in this way.
@@ -31,3 +32,12 @@ In order to run this app, you will need:
 <img src = ".\src\assets\readme\PostmanScreenShot.png"></li>
 
 <li>Click send and you should see an access token appear in the terminal (Note: This token expires every hour)</li></ol>
+
+<h2>JavaScript</h2>
+
+<h2>CSS</h2>
+The app was built completely with custom CSS. I used <a href="https://www.canva.com/">Canva</a> to create a theme and logo. I used <a href="https://fonts.google.com/">Google Fonts</a> for the text styles.
+
+<img src=".\src\assets\readme\Palette.png">
+
+<h2>Thank you!</h2>
