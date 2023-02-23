@@ -5,3 +5,16 @@ Pawsibility is a pet finder app that allows you to search adoptable pets by zipc
 To make the app, I used HTML, JavaScript, CSS, React, and Redux. I also utilized Postman and of course, the Petfinder API. I decided to revamp this project because I wanted to do so much more with it last time, and I loved the idea of being familiar with the API.
 
 <h2>Challenges</h2>
+With the API set up already, the biggest obstacle I faced was passing state. I found it pretty easy to get lost with the multiple states I was working with. File structure was also an issue. I had decided to make the hamburger component seperately and I think this is what prevented me from hiding the menu on click in mobile. Aside from state, styling is always by biggest challenge. I'm quite proud of what I was able to produce here in vanilla CSS, and I'm glad I decided to stretch myself in this way.
+
+<h2>Getting Started</h2>
+In order to run this app, you will need:
+<ul>
+<li><a href="https://reactjs.org/docs/getting-started.html">React</a></li>
+<li><a href="https://vitejs.dev/guide/">Vite</a></li>
+<li><a href="https://www.npmjs.com/package/redux">Redux</a></li>
+<li><a href="https://reactrouter.com/en/main/start/tutorial">React Router Dom</a></li>
+<li><a href="https://react-select.com/home">React Select</a></li>
+<li><a href="https://www.npmjs.com/package/react-toastify?activeTab=readme">React Toastify</a></li>
+<li><a href="https://fontawesome.com/v5/docs/web/use-with/react">Font Awesome</a></li>
+</ul>
