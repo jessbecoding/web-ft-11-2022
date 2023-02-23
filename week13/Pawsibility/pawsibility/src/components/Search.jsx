@@ -118,7 +118,11 @@ const Search = () => {
       </div>
       <div className="petCardContainer">
         {pets?.map((pet) => (
-          <Link to={`/about/${pet.name}/${pet.id}`} state={pet}>
+          <Link
+            to={`/about/${pet.name}/${pet.id}`}
+            state={pet}
+            className="petLinks"
+          >
             <div className="petCard">
               <div>
                 <img

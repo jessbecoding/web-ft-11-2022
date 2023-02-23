@@ -1,13 +1,26 @@
 .zipInput {
-  width: 50%;
+  width: 20%;
   height: 3rem;
-  background-color: var(--parchment);
+  background-color: transparent;
   color: black;
+  border: none;
+  font-size: larger;
+}
+
+.zipInput:hover {
+  transition: width 0.4s ease-in-out;
+}
+
+.zipInput:focus {
+  width: 25%;
+  outline: none;
+  border-bottom: 2px solid var(--thunder);
 }
 
 .zipDiv {
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 .filterDiv {
@@ -37,10 +50,25 @@
 
 .petCard {
   border-radius: 25px;
-  background-color: blueviolet;
+  background-color: var(--empress);
   margin: 5px;
   height: 20rem;
   width: 15rem;
+  color: black;
+}
+
+.petLinks {
+  color: var(--parchment);
+  text-decoration: none;
+}
+
+.petCard:hover {
+  color: var(--parchment);
+  animation: zoom-in-zoom-out 1s ease;
+}
+
+.petLinks:visited {
+  color: var(--thunder);
 }
 
 .petPhoto {
