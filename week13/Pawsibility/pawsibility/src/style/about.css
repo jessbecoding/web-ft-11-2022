@@ -6,17 +6,47 @@
 .firstSection {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+}
+
+.secondSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.thirdSection ul {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.thirdSection {
+  width: 30vw;
+  border-bottom: 2px var(--thunder) solid;
+  border-top: 2px var(--thunder) solid;
+}
+
+.fourthSection h2 {
+  margin-left: 7px;
+}
+
+.fourthSection h3 {
+  margin-left: 7px;
+}
+
+.fourthSection p {
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 .favButton {
   height: 3rem;
   border: none;
   background-color: var(--viola);
-  color: var(--falcon);
+  color: var(--thunder);
   font-family: "Gloock", serif;
   font-size: x-large;
+  margin-bottom: 5px;
 }
 
 .favButton:hover {
@@ -25,7 +55,6 @@
 }
 
 .favButtonOff {
-  width: 35%;
   height: 3rem;
   border: none;
   background-color: var(--scorpion);
@@ -50,7 +79,7 @@
   width: 100vw;
   height: 60vh;
   background-color: var(--thunder);
-  margin-top: 50px;
+  margin-top: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,4 +87,28 @@
 
 .image {
   border-radius: 25px;
+}
+
+.detailsContainer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--falcon);
+  width: 30vw;
+  height: auto;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.fifthSection {
+  margin-left: 7px;
+}
+
+.fifthSection p {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.petName {
+  width: 30vw;
+  border-bottom: 2px var(--thunder) solid;
 }

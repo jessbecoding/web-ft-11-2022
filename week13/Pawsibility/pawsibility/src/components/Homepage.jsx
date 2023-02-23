@@ -50,7 +50,6 @@ const Homepage = () => {
           <ImageSlider slides={SliderData} />
         </div>
       </div>
-      <Footer />
     </div>
   );
 };

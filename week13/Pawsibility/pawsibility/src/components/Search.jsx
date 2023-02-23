@@ -130,7 +130,7 @@ const Search = () => {
                   src={pet?.primary_photo_cropped?.small}
                 />
               </div>
-              <div>
+              <div className="petNameContainer">
                 <h1 className="petName">{pet?.name}</h1>
               </div>
               <div>

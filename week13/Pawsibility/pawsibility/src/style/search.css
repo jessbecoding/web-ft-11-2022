@@ -1,3 +1,9 @@
+:root {
+  --toastify-color-warning: var(--thunder);
+  --toastify-icon-color-warning: var(--cavernPink);
+  --toastify-font-family: "Suranna", serif;
+}
+
 .zipInput {
   width: 20%;
   height: 3rem;
@@ -45,7 +51,7 @@
 .petCardContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .petCard {
@@ -76,4 +82,9 @@
   width: 15rem;
   height: 10rem;
   object-fit: cover;
+}
+
+.petNameContainer {
+  display: flex;
+  align-items: center;
 }

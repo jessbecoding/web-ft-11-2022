@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import Search from "./components/Search";
 import FavPets from "./components/FavPets";
 import About from "./components/About";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/favoritePets" element={<FavPets />} />
         </Routes>
       </div>
+      <Footer />
     </div>
   );
 }
