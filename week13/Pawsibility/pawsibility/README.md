@@ -28,6 +28,6 @@ In order to run this app, you will need:
 <li>If you haven’t already, install <a href="https://www.postman.com/downloads/">Postman</a>.</li>
 <li>Create a new request to match this screen shot (type in your own client ID (API Key) and secret:
 
-<img src = "./assets/readme/PostmanScreenShot.png"></li>
+<img src = "../assets/readme/PostmanScreenShot.png"></li>
 
 <li>Click send and you should see an access token appear in the terminal (Note: This token expires every hour)</li></ol>
