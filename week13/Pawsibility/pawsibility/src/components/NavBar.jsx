@@ -33,7 +33,7 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link to="#">
+              <Link to="https://medium.com/@jessbecoding/pawsibility-2-0-a7a18997d17a">
                 <FontAwesomeIcon icon={faMedium} /> Medium
               </Link>
             </li>
