@@ -17,4 +17,17 @@ In order to run this app, you will need:
 <li><a href="https://react-select.com/home">React Select</a></li>
 <li><a href="https://www.npmjs.com/package/react-toastify?activeTab=readme">React Toastify</a></li>
 <li><a href="https://fontawesome.com/v5/docs/web/use-with/react">Font Awesome</a></li>
+<li><a href="https://www.petfinder.com/developers/">Pet Finder API Key</a></li>
 </ul>
+<ol>
+<li>Navigate to the <a href= "https://www.petfinder.com/developers/">Petfinder API</a> and click the “Get An API Key” button</li>
+<li>Create an account</li>
+<li>Once account is created, you can click “For Developers”</li>
+<li>Fill out the details of your project and what context you’ll be using the API for (personal, business, school, etc.) and click “Request a Key”</li>
+<li>The API key will display on the next page along with a “secret.” This is used to request private information, which I won’t go into as this project is focused on the frontend. You will need this secret to set up Postman for the bearer token. </li>
+<li>If you haven’t already, install <a href="https://www.postman.com/downloads/">Postman</a>.</li>
+<li>Create a new request to match this screen shot (type in your own client ID (API Key) and secret:
+
+<img src = ".\PostmanScreenShot.png"></li>
+
+<li>Click send and you should see an access token appear in the terminal (Note: This token expires every hour)</li></ol>
