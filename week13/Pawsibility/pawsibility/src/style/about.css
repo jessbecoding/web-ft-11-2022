@@ -2,6 +2,9 @@
   --toastify-color-success: var(--thunder);
   --toastify-icon-color-success: var(--cavernPink);
   --toastify-font-family: "Suranna", serif;
+  --toastify-color-warning: var(--thunder);
+  --toastify-icon-color-warning: var(--cavernPink);
+  --toastify-font-family: "Suranna", serif;
 }
 
 .mainContainer {
