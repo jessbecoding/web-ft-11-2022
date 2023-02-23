@@ -16,10 +16,10 @@ const FavPets = () => {
     dupNotification();
   };
   return (
-    <div className="mainContainer">
-      <div className="petCardContainer">
+    <div className="mainContainerFav">
+      <div className="petCardContainerFav">
         {favPets?.map((pet) => (
-          <div className="petCard">
+          <div className="petCardFav">
             <div className="photoDiv">
               <img
                 className="petPhoto"
@@ -39,8 +39,8 @@ const FavPets = () => {
                 </ul>
               </div>
             </div>
-            <div>
-              <button className="favButton" onClick={() => delFav(pet)}>
+            <div className="buttonDiv">
+              <button className="favoriteButton" onClick={() => delFav(pet)}>
                 Remove From Favorites
               </button>
             </div>
