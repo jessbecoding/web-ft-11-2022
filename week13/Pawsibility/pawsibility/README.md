@@ -28,16 +28,16 @@ In order to run this app, you will need:
 <li>The API key will display on the next page along with a “secret.” This is used to request private information, which I won’t go into as this project is focused on the frontend. You will need this secret to set up Postman for the bearer token. </li>
 <li>If you haven’t already, install <a href="https://www.postman.com/downloads/">Postman</a>.</li>
 <li>Create a new request to match this screen shot (type in your own client ID (API Key) and secret:
-
+<br>
 <img src = ".\src\assets\readme\PostmanScreenShot.png"></li>
-
+<br>
 <li>Click send and you should see an access token appear in the terminal (Note: This token expires every hour)</li></ol>
 
 <h2>JavaScript</h2>
 
 <h2>CSS</h2>
-The app was built completely with custom CSS. I used <a href="https://www.canva.com/">Canva</a> to create a theme and logo. I used <a href="https://fonts.google.com/">Google Fonts</a> for the text styles.
-
-<img src=".\src\assets\readme\Palette.png">
-
+The app was built completely with custom CSS. I used <a href="https://www.canva.com/">Canva</a> to create a theme and logo. I used <a href="https://fonts.google.com/share?selection.family=Belleza|Gloock|Suranna">Google Fonts</a> for the text styles.
+<br>
+<img src=".\src\assets\readme\Palette.png"><br><img src=".\src\assets\readme\fonts.png">
+<br>
 <h2>Thank you!</h2>
