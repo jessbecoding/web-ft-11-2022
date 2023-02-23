@@ -1,19 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../src/style/footer.css";
-import { Link } from "react-router-dom";
-import transparentLogo from "../assets/logos/PawsibilityLogoTransparent.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub, faMedium } from "@fortawesome/free-brands-svg-icons";
 import {
-  faMagnifyingGlass,
-  faHeart,
-  faHouse,
-} from "@fortawesome/free-solid-svg-icons";
-import Burger from "./Burger";
+  faGithub,
+  faMedium,
+  faLinkedin,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Footer = () => {
-  const [open, setOpen] = useState();
-
   return (
     <div className="main-footer">
       <div className="container">
@@ -27,14 +21,6 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col">
-            <h4>Stuff</h4>
-            <ul className="list-unstyled">
-              <li>We do things!</li>
-              <li>Yep</li>
-              <li>So many things</li>
-            </ul>
-          </div>
-          <div className="col">
             <h4>Another Column!</h4>
             <ul className="list-unstyled">
               <li>Wow!</li>
@@ -42,12 +28,35 @@ const Footer = () => {
               <li>Very cool</li>
             </ul>
           </div>
+          <div className="col">
+            <h4>Jessika Adams</h4>
+            <ul className="list-unstyled">
+              <li>
+                <a
+                  href="https://www.linkedin.com/in/jessikalynnadams/"
+                  target="_blank"
+                >
+                  <FontAwesomeIcon icon={faLinkedin} /> LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="https://github.com/jessbecoding" target="_blank">
+                  <FontAwesomeIcon icon={faGithub} /> GitHub
+                </a>
+              </li>
+              <li>
+                <a href="https://medium.com/@jessbecoding" target="_blank">
+                  <FontAwesomeIcon icon={faMedium} /> Medium
+                </a>
+              </li>
+            </ul>
+          </div>
         </div>
         <hr />
         <div className="row">
           <p className="col-sm">
             &copy;{new Date().getFullYear()} Pawsibility | All rights reserved |
-            Terms of Service | Privacy
+            <a href=""> Terms of Service</a> | <a href="">Privacy</a>
           </p>
         </div>
       </div>
