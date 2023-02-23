@@ -12,8 +12,6 @@ import {
 import Burger from "./Burger";
 
 const NavBar = () => {
-  const [open, setOpen] = useState();
-
   return (
     <div>
       <nav className="navbar">
