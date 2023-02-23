@@ -33,12 +33,20 @@ const NavBar = () => {
               </Link>
             </li>
             <li>
-              <Link to="https://medium.com/@jessbecoding/pawsibility-2-0-a7a18997d17a">
+              <Link
+                to="https://medium.com/@jessbecoding/pawsibility-2-0-a7a18997d17a"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faMedium} /> Medium
               </Link>
             </li>
             <li>
-              <Link to="https://github.com/jessbecoding/web-ft-11-2022/tree/main/week13/Pawsibility/pawsibility">
+              <Link
+                to="https://github.com/jessbecoding/web-ft-11-2022/tree/main/week13/Pawsibility/pawsibility"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FontAwesomeIcon icon={faGithub} /> Github
               </Link>
             </li>
